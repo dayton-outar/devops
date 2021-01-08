@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
   #config.vm.provision "shell", path: "./installation/mysql-secure-installation.sh"
   ## WordPress script needed ... username: administrator password: Cl3arBlu3$ki3$
   # cp -r . /var/www/html
+  # chown -R apache wp-content
 
   ## Before running composer update in Tests folder
   # Had to take ownership of files in test before using composer update
