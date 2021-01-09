@@ -26,13 +26,14 @@ yum install -y mysql-server
 # Install PHP
 yum install -y php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
 
-# View enabled PHP modules
-#php --modules
-# Check versions
-#php --version
-
 # List installed packages
 #yum list installed
+
+# View enabled PHP modules
+#php --modules
+
+# Check versions
+#php --version
 
 # Check Apache version
 #httpd -v
@@ -48,7 +49,7 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Insta
 php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # Find the Tests folder
-cd /vagrant/wp-content/plugins/yaptool/Tests
+## cd /vagrant/wp-content/plugins/yaptool/Tests
 
 # Install PHP packages for PHP Unit Tests
 composer update
