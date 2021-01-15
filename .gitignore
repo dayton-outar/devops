@@ -1,5 +1,6 @@
-/.vagrant
+.vagrant
+wordpress
+
 /Vagrantfile
 /bash-cookbook
 /bash-simple-scripts
-wordpress

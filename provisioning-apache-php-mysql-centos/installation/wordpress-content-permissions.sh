@@ -1,3 +1,10 @@
+cd /vagrant
+# Copy all wordpress files into apache home directory
+cp -r . /var/www/html
+
+# Find apache home directory
+cd /var/www/html
+
 # Give web server guest user ownership of wp-contnent folder. For Debian/Ubuntu the guest user is www-data
 chown -R apache wp-content
 
