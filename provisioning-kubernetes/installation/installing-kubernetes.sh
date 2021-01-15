@@ -15,7 +15,7 @@ sudo systemctl enable libvirtd
 systemctl status libvirtd
 
 # Add current user to libvirt group
-usermod -a -G libvirt $(whoami)
+usermod -aG libvirt $(whoami)
 
 
 # Wget not installed in Centos by default
@@ -31,7 +31,7 @@ chmod +x minikube-linux-amd64
 mv minikube-linux-amd64 /usr/local/bin/minikube
 
 # Download kubectl
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 
 # Grant kubectl permissions to execute
 chmod +x kubectl
@@ -42,5 +42,13 @@ mv kubectl  /usr/local/bin/
 # Configure the libvirt KVM with the following security parameters
 ## * unix_sock_group = "libvirt"
 ## * unix_sock_rw_perms = "0770"
-#sudo vi /etc/libvirt/libvirtd.conf
-#sudo systemctl restart libvirtd.service
+#vi /etc/libvirt/libvirtd.conf
+#systemctl restart libvirtd.service
+
+# Install Docker
+yum install -y docker
+
+# Start Docker
+systemctl start docker
+# Enable Docker
+systemctl enable docker
