@@ -9,5 +9,6 @@ cd /var/www/html
 chown -R apache wp-content
 
 # Set permissions for folders to allow content to be created and modified in directory
-chmod 777 wp-content/plugins
-chmod 777 wp-content/themes
+# Meaning of the permission numbers: https://www.maketecheasier.com/file-permissions-what-does-chmod-777-means/
+chmod 755 wp-content/plugins
+chmod 755 wp-content/themes
