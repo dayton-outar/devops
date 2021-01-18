@@ -1,0 +1,1 @@
+RESTORE DATABASE [blitz] FROM DISK = N'/var/opt/mssql/data/BLITZ.bak' WITH MOVE 'BLITZ' TO '/var/opt/mssql/data/BLITZ.mdf', MOVE 'BLITZ_log' TO '/var/opt/mssql/data/BLITZ_log.ldf'
