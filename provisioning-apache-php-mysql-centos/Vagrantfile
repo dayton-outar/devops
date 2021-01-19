@@ -7,7 +7,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder "./wordpress", "/vagrant"
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  # Make Apache listen on port 8080 /etc/httpd/conf/httpd.conf
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   config.vm.provider "virtualbox" do |vb|
     # Customize the amount of memory on the VM:
