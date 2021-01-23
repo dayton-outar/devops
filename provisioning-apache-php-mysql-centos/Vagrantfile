@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", path: "./installation/setup-apache-php-mysql.sh"
-  config.vm.provision "shell", path: "./installation/installing-node-14-centos.sh"
+  config.vm.provision "shell", path: "./installation/installing-node-14-centos-7.sh"
   config.vm.provision "shell", path: "./installation/mysql-secure-installation.sh"
   config.vm.provision "shell", path: "./installation/wordpress-content-permissions.sh"
 
