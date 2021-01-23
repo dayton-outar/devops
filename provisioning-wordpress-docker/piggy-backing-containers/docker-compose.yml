@@ -1,0 +1,21 @@
+version: "3.1"
+services:
+    wp:
+        image: andreccosta/wordpress-xdebug
+        volumes:
+            - .:/var/www/html
+        ports:
+            - 8082:80
+        restart: on-failure
+        environment:
+            WORDPRESS_DB_NAME: fgb-cms
+            WORDPRESS_DB_HOST: db:3306
+            WORDPRESS_DB_USER: wpadmin
+            WORDPRESS_DB_PASSWORD: cl3arSki3s
+            XDEBUG_CONFIG: remote_host=host.docker.internal
+volumes:
+    persistent:
+networks: 
+    default:
+        external: 
+            name: wordpress-yap_default
