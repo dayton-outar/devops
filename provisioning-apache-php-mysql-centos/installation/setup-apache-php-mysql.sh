@@ -26,6 +26,9 @@ yum install -y mysql-server
 # Install PHP
 yum install -y php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
 
+# Or try it like this
+#yum install -y php php-{cli,fpm,mysqlnd,zip,devel,gd,mcrypt,mbstring,curl,xml,pear,bcmath,json}
+
 # List installed packages
 #yum list installed
 
