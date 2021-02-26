@@ -27,6 +27,6 @@ services:
             WORDPRESS_DB_HOST: db:3306
             WORDPRESS_DB_USER: wpadmin
             WORDPRESS_DB_PASSWORD: cl3arSki3s
-            XDEBUG_CONFIG: remote_host=host.docker.internal remote_connect_back=1
+            XDEBUG_CONFIG: remote_host=127.0.0.1
 volumes:
     persistent:
