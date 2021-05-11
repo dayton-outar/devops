@@ -3,9 +3,9 @@
 Adapted from [here](https://gist.github.com/hofmannsven/9164408)
 
 ## Getting started
-- http://www.sqlteaching.com/
-- https://www.codecademy.com/learn/learn-sql
-- https://www.codecademy.com/catalog/language/sql
+- [SQL Teaching](http://www.sqlteaching.com/)
+- [Learn SQL](https://www.codecademy.com/learn/learn-sql)
+- [SQL](https://www.codecademy.com/catalog/language/sql)
 
 ### Related tutorials
 - [MySQL-CLI](https://www.youtube.com/playlist?list=PLfdtiltiRHWEw4-kRrh1ZZy_3OcQxTn7P)
