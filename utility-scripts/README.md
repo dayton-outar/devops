@@ -65,6 +65,4 @@ A collection of simple Bash scripts.
 
 1. [thumbnail.sh](simple-scripts/thumbnail.sh): create 400px thumbnails from images in a folder
 
-## License
-
-MIT
+[Bash Cheatsheet](https://devhints.io/bash)
