@@ -491,3 +491,8 @@ create trigger t_delete_knd on knd
 		delete from bst where id_fi_k = (select id_kund from deleted)
 	end;
 ```
+
+## Further Reading
+
+1. [SQL Server CURSOR](https://www.sqlservertutorial.net/sql-server-stored-procedures/sql-server-cursor/)
+2. [SQL Server Cursor Example](https://www.mssqltips.com/sqlservertip/1599/cursor-in-sql-server/)
