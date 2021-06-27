@@ -1,6 +1,20 @@
 # Learning Kubernetes
 
+The following command list all supported API versions:
+
+```bash
+kubectl api-versions
+```
+
+Following command successfully display all kubernetes objects
+
+```bash
+kubectl api-resources
+```
+
 ## Notes
+
+When applying the Kubernetes component, secrets and config maps has to be deployed before a deployment and service.
 
 To convert a plain text into base64 encoded format in bash, use the following
 
