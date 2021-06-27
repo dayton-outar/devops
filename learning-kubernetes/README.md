@@ -12,6 +12,16 @@ Following command successfully display all kubernetes objects
 kubectl api-resources
 ```
 
+Following command shows details for kubernetes object
+
+```bash
+kubectl explain --help
+```
+
+```bash
+kubectl explain pods
+```
+
 ## Notes
 
 When applying the Kubernetes component, secrets and config maps has to be deployed before a deployment and service.
