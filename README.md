@@ -17,3 +17,7 @@ Pooling ideas from,
 3. [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 4. [An example of how to use getopts in bash](https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash)
 5. [Docker Cheatsheet](https://dev.to/vishnuchilamakuru/docker-cheatsheet-39fa)
+
+## Tutorial Videos
+
+1. [Ansible 101](https://www.youtube.com/playlist?list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN)
