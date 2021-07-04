@@ -6,10 +6,6 @@ All the resources required to make use of Virtualization to deploy cluster of ap
 
 Included in this, is several Bash and SQL scripts that can be used to automate processes on the OS and databases, respectively.
 
-Pooling ideas from,
-- [Kubernetes 101](https://github.com/geerlingguy/kubernetes-101)
-- [Awesome Docker Compose](https://github.com/docker/awesome-compose)
-
 ## Further Reading
 
 1. [Kubernetes Cheat Sheet](https://github.com/RehanSaeed/Kubernetes-Cheat-Sheet#kubernetes-cheat-sheet)
@@ -17,6 +13,8 @@ Pooling ideas from,
 3. [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 4. [An example of how to use getopts in bash](https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash)
 5. [Docker Cheatsheet](https://dev.to/vishnuchilamakuru/docker-cheatsheet-39fa)
+6. [Kubernetes 101](https://github.com/geerlingguy/kubernetes-101)
+7. [Awesome Docker Compose](https://github.com/docker/awesome-compose)
 
 ## Tutorial Videos
 
