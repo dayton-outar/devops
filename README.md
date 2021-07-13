@@ -19,3 +19,5 @@ Included in this, is several Bash and SQL scripts that can be used to automate p
 ## Tutorial Videos
 
 1. [Ansible 101](https://www.youtube.com/playlist?list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN)
+2. [Vagrant Crash Course](https://youtu.be/vBreXjkizgo) - [Traversy Media](https://www.youtube.com/user/TechGuyWeb)
+3. [Docker For Beginners: From Docker Desktop to Deployment](https://youtu.be/i7ABlHngi1Q)
