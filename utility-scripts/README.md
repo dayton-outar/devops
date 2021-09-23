@@ -65,8 +65,12 @@ A collection of simple Bash scripts.
 
 1. [thumbnail.sh](simple-scripts/thumbnail.sh): create 400px thumbnails from images in a folder
 
-[Bash Cheatsheet](https://devhints.io/bash)
+## Further Reading
+
+1. [Bash Cheatsheet](https://devhints.io/bash)
 
 ## Tutorial Videos
 
 1. [Bash Basics](https://www.youtube.com/playlist?list=PLTXMX1FE5Hj5ZJDt_WMbioFpdWO5SGy8r) - [Joe Collins](https://www.youtube.com/user/BadEditPro)
+2. [Practical Bash](https://www.youtube.com/playlist?list=PLShDm2AZYnK1SdG3dufPdCqk08sOahUBP) - [kubucation](https://www.youtube.com/c/kubucation)
+2. [How to use /dev/null: 2-Minute Linux Tips](https://youtu.be/pIL5LZQn3W8)
