@@ -38,3 +38,5 @@ echo -n 'boom' | base64
 1. [Kubernetes Explained in 100 Seconds](https://youtu.be/PziYflu8cB8) - [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)
 2. [Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours]](https://youtu.be/X48VuDVv0do) - TechWorld with Nana
 3. [Kubernetes Provisioning](https://www.youtube.com/playlist?list=PL34sAs7_26wODP4j6owN-36Vg-KbACgkT) - [Just me and Opensource](https://www.youtube.com/c/wenkatn-justmeandopensource)
+4. [Automated Tasks with Cronjob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)
+    - [CronJobs](https://v1-19.docs.kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (Kubernetes 1.19)

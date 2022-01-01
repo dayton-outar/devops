@@ -15,6 +15,8 @@ Included in this, is several Bash and SQL scripts that can be used to automate p
 5. [Docker Cheatsheet](https://dev.to/vishnuchilamakuru/docker-cheatsheet-39fa)
 6. [Kubernetes 101](https://github.com/geerlingguy/kubernetes-101)
 7. [Awesome Docker Compose](https://github.com/docker/awesome-compose)
+8. [Linux Directory Structure - Hierarchy](https://eng.libretexts.org/Bookshelves/Computer_Science/Operating_Systems/Linux_-_The_Penguin_Marches_On_(McClanahan)/04%3A_Managing_Linux_Storage/5.12%3A_Linux_Directory_Structure/5.12.01%3A_Linux_Directory_Structure_-_Hierarchy)
+9. [Linux Directory Structure (File System Structure)](https://www.thegeekstuff.com/2010/09/linux-file-system-structure/)
 
 ## Tutorial Videos
 
