@@ -1,0 +1,41 @@
+# Shrink default JVM heap.
+esJavaOpts: "-Xmx128m -Xms128m"
+
+# Allocate smaller chunks of memory per pod.
+resources:
+  requests:
+    cpu: "100m"
+    memory: "512M"
+  limits:
+    cpu: "1000m"
+    memory: "512M"
+
+# To allocate more space if above requests and limits aren't enough
+# resources:
+  # requests:
+    # cpu: "500m"
+    # memory: "2Gi"
+  # limits:
+    # cpu: "1000m"
+    # memory: "5G"    
+
+# Request smaller persistent volumes.
+volumeClaimTemplate:
+  accessModes: [ "ReadWriteOnce" ]
+  storageClassName: "linode-block-storage"
+  resources:
+    requests:
+      storage: 100M
+
+# This init container allows Elastic Search service access to volumes created for ES pods on Linode 
+extraInitContainers:
+  - name: init-volume-permission
+    image: busybox
+    command: ['chown', '-R', '1000:1000', '/usr/share/elasticsearch/']
+    volumeMounts:
+    - mountPath: /usr/share/elasticsearch/data
+      name: elasticsearch-master
+    securityContext:
+      privileged: true
+      runAsUser: 0
+

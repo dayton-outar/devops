@@ -40,3 +40,6 @@ echo -n 'boom' | base64
 3. [Kubernetes Provisioning](https://www.youtube.com/playlist?list=PL34sAs7_26wODP4j6owN-36Vg-KbACgkT) - [Just me and Opensource](https://www.youtube.com/c/wenkatn-justmeandopensource)
 4. [Automated Tasks with Cronjob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)
     - [CronJobs](https://v1-19.docs.kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (Kubernetes 1.19)
+5. [Kubernetes Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+6. [Docker Tagging: Best practices for tagging and versioning docker images](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)
+7. [WARNING: Kubernetes configuration file is group/world-readable](https://github.com/helm/helm/issues/9115)
