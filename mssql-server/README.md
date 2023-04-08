@@ -496,3 +496,4 @@ create trigger t_delete_knd on knd
 
 1. [SQL Server CURSOR](https://www.sqlservertutorial.net/sql-server-stored-procedures/sql-server-cursor/)
 2. [SQL Server Cursor Example](https://www.mssqltips.com/sqlservertip/1599/cursor-in-sql-server/)
+3. [How to Change SQL SA Password from a Command Prompt](https://www.cocosenor.com/articles/office/how-to-change-sql-sa-password-from-a-command-prompt.html)
