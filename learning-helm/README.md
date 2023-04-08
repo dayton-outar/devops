@@ -21,6 +21,7 @@ helm install --dry-run --debug [chart name]
 
 1. [Bitnami Helm Charts](https://github.com/bitnami/charts/tree/master/bitnami)
 2. [Create Your First Helm Chart](https://docs.bitnami.com/tutorials/create-your-first-helm-chart/)
+3. [Manage Auto-generated Secrets In Your Helm Charts](https://itnext.io/manage-auto-generated-secrets-in-your-helm-charts-5aee48ba6918)
 
 ## Tutorial Videos
 
