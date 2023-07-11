@@ -71,6 +71,7 @@ A collection of simple Bash scripts.
 2. [How to Pretty Print JSON File in Linux Terminal - It's FOSS](https://itsfoss.com/pretty-print-json-linux/)
 3. [How to Pretty-Print XML From the Command Line | Baeldung on Linux](https://www.baeldung.com/linux/pretty-print-xml)
 4. [How to Disable IPv6 on Ubuntu Linux](https://itsfoss.com/disable-ipv6-ubuntu-linux/)
+5. [Learning Ubuntu: Set Timezone](https://www.hostinger.com/tutorials/how-to-change-timezone-in-ubuntu/)
 
 ## Tutorial Videos
 
