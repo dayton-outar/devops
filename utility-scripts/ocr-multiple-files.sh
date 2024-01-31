@@ -1,0 +1,1 @@
+ls *.png | xargs -n1 -I{} sh -c 'tesseract {} $(basename {} .png)'
