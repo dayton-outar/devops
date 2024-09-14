@@ -18,6 +18,10 @@ Included in this, is several Bash and SQL scripts that can be used to automate p
 8. [Linux Directory Structure - Hierarchy](https://eng.libretexts.org/Bookshelves/Computer_Science/Operating_Systems/Linux_-_The_Penguin_Marches_On_(McClanahan)/04%3A_Managing_Linux_Storage/5.12%3A_Linux_Directory_Structure/5.12.01%3A_Linux_Directory_Structure_-_Hierarchy)
 9. [Linux Directory Structure (File System Structure)](https://www.thegeekstuff.com/2010/09/linux-file-system-structure/)
 10. [How to use GitHub Personal Access Token (PAT) in VSCode](https://linuxpip.org/use-github-personal-access-token-in-vscode/)
+11. Learning SQL by Alan Beaulieu
+12. Microsoft SQL Server 2012 T-Fundamentals by Itzik Ben-Gan
+13. PostgreSQL: Up and Running by Regina Obe and Leo Hsu
+14. Oracle PL/SQL Programming by Steven Feuerstein
 
 ## Tutorial Videos
 
