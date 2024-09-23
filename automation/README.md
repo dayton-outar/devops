@@ -41,3 +41,7 @@ Dynamic libraries promote modularity by allowing developers to break down large 
 Dynamic linked libraries in Unix are crucial for automation in software development and deployment. By reducing build times, simplifying dependency management, optimizing resource usage, and allowing easy updates, they streamline the automation of complex workflows. Whether in build systems, CI/CD pipelines, or automated deployment processes, shared libraries help create efficient, modular, and scalable automation environments.
 
 See more details about building [Software Libraries in C on Unix](./SOFTWARE.LIBRARIES.md)
+
+## Videos
+
+1. [Makefile-Related Videos](https://www.youtube.com/playlist?list=PL9IEJIKnBJjEPxenuhKU7J5smY4XjFnyg) - [Jacob Sorber](https://www.youtube.com/@JacobSorber)
