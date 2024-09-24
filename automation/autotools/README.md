@@ -186,3 +186,7 @@ Autoheader creates a template header file (`config.h.in`) based on the checks de
 ---
 
 This cheat sheet covers the fundamental concepts and commands in **Autotools**. With `configure.ac` and `Makefile.am`, Autotools generates portable build systems suitable for many Unix-like environments.
+
+## Videos
+
+1. [How to use autotools (automake, autoconf, aclocal, autoheader)](https://youtu.be/3XO0d9Qyc34?si=sLgmEegcxB_NZg30)
