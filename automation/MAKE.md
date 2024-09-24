@@ -986,6 +986,7 @@ This cheat sheet covers the essential commands, variables, and patterns you'll n
 
 ## Further Reading
 
+1. [GNU Make](https://www.gnu.org/software/make/manual/html_node/index.html)
 1. [GNU Make: Quick Reference](https://www.gnu.org/software/make/manual/html_node/Quick-Reference.html)
 
 ## Videos
