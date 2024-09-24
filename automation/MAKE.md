@@ -71,6 +71,8 @@ After processing the prerequisites and running the commands, `make` either succe
 - **`make -k`**: Continue building even if errors occur.
 - **`make -j [jobs]`**: Run multiple jobs in parallel.
 
+See [How to Run `make`](https://www.gnu.org/software/make/manual/html_node/Running.html)
+
 ---
 
 ## **Variables**
@@ -602,6 +604,7 @@ These variables offer more control and flexibility in handling filenames, direct
 ---
 
 ## **Built-in Rules**
+
 GNU `make` comes with built-in rules for common tasks. For example:
 ```make
 .c.o:
@@ -610,6 +613,267 @@ GNU `make` comes with built-in rules for common tasks. For example:
 
 - **`.c.o`**: Tells `make` how to convert `.c` to `.o` files.
 - You can override or define your own rules if necessary.
+
+Here’s a catalogue of some of the most commonly used built-in rules in `make`:
+
+### 1. **Compiling C Programs (`.c -> .o`)**
+   - **Rule**: Compiles a `.c` file into an object (`.o`) file.
+   - **Command**:
+     ```bash
+     $(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<
+     ```
+   - **Use**:
+     ```makefile
+     %.o: %.c
+     ```
+   - **Example**:
+     If you have a `main.c` file, you can build `main.o` without explicitly writing a rule:
+     ```bash
+     make main.o
+     ```
+
+### 2. **Linking C Programs (`.o -> executable`)**
+   - **Rule**: Links object files into an executable.
+   - **Command**:
+     ```bash
+     $(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+     ```
+   - **Use**:
+     ```makefile
+     my_program: main.o utils.o
+     ```
+   - **Example**:
+     You can link `main.o` and `utils.o` into an executable:
+     ```bash
+     make my_program
+     ```
+
+### 3. **Compiling C++ Programs (`.cpp -> .o`)**
+   - **Rule**: Compiles a `.cpp` file into an object (`.o`) file.
+   - **Command**:
+     ```bash
+     $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+     ```
+   - **Use**:
+     ```makefile
+     %.o: %.cpp
+     ```
+   - **Example**:
+     If you have a `main.cpp` file, you can build `main.o`:
+     ```bash
+     make main.o
+     ```
+
+### 4. **Linking C++ Programs (`.o -> executable`)**
+   - **Rule**: Links C++ object files into an executable.
+   - **Command**:
+     ```bash
+     $(CXX) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+     ```
+   - **Use**:
+     ```makefile
+     my_program: main.o utils.o
+     ```
+   - **Example**:
+     You can link `main.o` and `utils.o` (from C++ source files) into an executable:
+     ```bash
+     make my_program
+     ```
+
+### 5. **Compiling Fortran Programs (`.f -> .o`)**
+   - **Rule**: Compiles a Fortran (`.f`) file into an object file.
+   - **Command**:
+     ```bash
+     $(FC) $(FFLAGS) -c -o $@ $<
+     ```
+   - **Use**:
+     ```makefile
+     %.o: %.f
+     ```
+   - **Example**:
+     Compile a Fortran file into an object:
+     ```bash
+     make main.o
+     ```
+
+### 6. **Linking Fortran Programs (`.o -> executable`)**
+   - **Rule**: Links Fortran object files into an executable.
+   - **Command**:
+     ```bash
+     $(FC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+     ```
+   - **Use**:
+     ```makefile
+     my_program: main.o utils.o
+     ```
+   - **Example**:
+     You can link Fortran object files into an executable:
+     ```bash
+     make my_program
+     ```
+
+### 7. **Assembling Programs (`.s -> .o`)**
+   - **Rule**: Assembles a `.s` (assembly) file into an object (`.o`) file.
+   - **Command**:
+     ```bash
+     $(AS) $(ASFLAGS) -o $@ $<
+     ```
+   - **Use**:
+     ```makefile
+     %.o: %.s
+     ```
+   - **Example**:
+     To assemble an assembly file into an object:
+     ```bash
+     make main.o
+     ```
+
+### 8. **Yacc/Bison to C (`.y -> .c`)**
+   - **Rule**: Compiles a `.y` (Yacc or Bison) grammar file into a `.c` file.
+   - **Command**:
+     ```bash
+     $(YACC) $(YFLAGS) $< -o $@
+     ```
+   - **Use**:
+     ```makefile
+     %.c: %.y
+     ```
+   - **Example**:
+     To generate a C file from a Yacc grammar file:
+     ```bash
+     make parser.c
+     ```
+
+### 9. **Lex/Flex to C (`.l -> .c`)**
+   - **Rule**: Compiles a `.l` (Lex or Flex) file into a `.c` file.
+   - **Command**:
+     ```bash
+     $(LEX) $(LFLAGS) $< -o $@
+     ```
+   - **Use**:
+     ```makefile
+     %.c: %.l
+     ```
+   - **Example**:
+     To generate a C file from a Lex file:
+     ```bash
+     make lexer.c
+     ```
+
+### 10. **Creating Static Libraries (`.a`) from Object Files**
+   - **Rule**: Creates a static library (`.a` file) from object (`.o`) files.
+   - **Command**:
+     ```bash
+     $(AR) $(ARFLAGS) $@ $^
+     ```
+   - **Use**:
+     ```makefile
+     libmylib.a: main.o utils.o
+     ```
+   - **Example**:
+     To create a static library from object files:
+     ```bash
+     make libmylib.a
+     ```
+
+### 11. **Extracting Object Files from a Static Library (`.a -> .o`)**
+   - **Rule**: Extracts object files from a static library.
+   - **Command**:
+     ```bash
+     $(AR) x $<
+     ```
+   - **Use**:
+     ```makefile
+     %.o: libmylib.a
+     ```
+
+### 12. **Making `.tar.gz` Archives**
+   - **Rule**: Creates a `.tar.gz` archive of files.
+   - **Command**:
+     ```bash
+     tar -czf $@ $^
+     ```
+   - **Use**:
+     ```makefile
+     %.tar.gz: %
+         tar -czf $@ $^
+     ```
+   - **Example**:
+     To create a `.tar.gz` archive:
+     ```bash
+     make project.tar.gz
+     ```
+
+### 13. **Cleaning Object and Executable Files (`.o -> clean`)**
+   - **Rule**: Cleans up `.o` files and executables, commonly used with the `clean` target.
+   - **Command**:
+     ```bash
+     rm -f *.o my_program
+     ```
+   - **Use**:
+     ```makefile
+     clean:
+         rm -f *.o my_program
+     ```
+   - **Example**:
+     Clean up all the object and binary files:
+     ```bash
+     make clean
+     ```
+
+### 14. **Linking and Creating `.so` (Shared Library)**
+   - **Rule**: Creates a shared library from object files (`.so`).
+   - **Command**:
+     ```bash
+     $(CC) $(LDFLAGS) -shared -o $@ $^ $(LDLIBS)
+     ```
+   - **Use**:
+     ```makefile
+     %.so: %.o
+     ```
+   - **Example**:
+     To create a shared library from an object file:
+     ```bash
+     make libmylib.so
+     ```
+
+### 15. **Making `.dvi` Documentation from LaTeX Files**
+   - **Rule**: Compiles a LaTeX (`.tex`) file into a `.dvi` file.
+   - **Command**:
+     ```bash
+     $(TEX) $<
+     ```
+   - **Use**:
+     ```makefile
+     %.dvi: %.tex
+     ```
+   - **Example**:
+     To create `.dvi` documentation:
+     ```bash
+     make report.dvi
+     ```
+
+### 16. **Compiling Java Programs (`.java -> .class`)**
+   - **Rule**: Compiles a `.java` file into a `.class` file.
+   - **Command**:
+     ```bash
+     $(JAVAC) $(JFLAGS) -d $(@D) $<
+     ```
+   - **Use**:
+     ```makefile
+     %.class: %.java
+     ```
+   - **Example**:
+     To compile a Java file into a class:
+     ```bash
+     make HelloWorld.class
+     ```
+
+### 17. **Linking Java Programs into a JAR (`.class -> .jar`)**
+   - **Rule**: Links `.class` files into a JAR file.
+   - **Command**:
+     ```bash
+    
 
 ---
 
@@ -630,9 +894,12 @@ The `.PHONY` target prevents `make` from confusing the target name with actual f
 GNU `make` supports functions for manipulating text.
 
 ### Example Functions:
+
 - **`$(wildcard pattern)`**: Returns files matching the pattern.
 - **`$(patsubst pattern,replacement,text)`**: Replaces parts of a string.
 - **`$(shell command)`**: Executes a shell command and returns the output.
+
+See [GNU Make Functions](https://www.gnu.org/software/make/manual/html_node/Functions.html)
 
 ---
 
