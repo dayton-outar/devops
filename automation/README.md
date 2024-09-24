@@ -10,6 +10,11 @@ In the context of **DevOps** and **CI/CD (Continuous Integration/Continuous Depl
 
 In summary, automation through shell scripts, build systems, and other tools is essential for streamlining software development. It not only boosts productivity by eliminating manual processes but also ensures consistency, reduces errors, and speeds up the overall development and deployment lifecycle.
 
+See Cheat Sheets,
+
+- [GNU Make](./MAKE.md)
+- [Autotools](./autotools/)
+
 ## Importance of Software Libraries in Automation
 
 Dynamic linked libraries (DLLs), also known as **shared libraries** in Unix-like systems (with file extensions like `.so`), play a significant role in automation, particularly in software development and deployment workflows. They contribute to automation in several ways, enhancing efficiency, flexibility, and maintainability. Here’s how dynamic linking factors into automation:
@@ -41,7 +46,3 @@ Dynamic libraries promote modularity by allowing developers to break down large 
 Dynamic linked libraries in Unix are crucial for automation in software development and deployment. By reducing build times, simplifying dependency management, optimizing resource usage, and allowing easy updates, they streamline the automation of complex workflows. Whether in build systems, CI/CD pipelines, or automated deployment processes, shared libraries help create efficient, modular, and scalable automation environments.
 
 See more details about building [Software Libraries in C on Unix](./SOFTWARE.LIBRARIES.md)
-
-## Videos
-
-1. [Makefile-Related Videos](https://www.youtube.com/playlist?list=PL9IEJIKnBJjEPxenuhKU7J5smY4XjFnyg) - [Jacob Sorber](https://www.youtube.com/@JacobSorber)
