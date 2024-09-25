@@ -1,29 +1,23 @@
 # Autotools Cheat Sheet
 
-This folder contains material from the Jupiter project source code repository for the No Starch Press book, Autotools, 2nd Edition.
+This folder contains material from the [Jupiter](./jupiter/) project source code repository for the No Starch Press book, Autotools, 2nd Edition.
 
-The book covers the following key areas:
+Autotools is a comprehensive guide to the GNU Autotools, a collection of tools used in Unix-based systems for building, configuring, and distributing software projects. The book would delve into various components of the Autotools suite, which includes **Autoconf**, **Automake**, **Libtool**, and related utilities.
 
- 1. Introduction to Autotools: An overview of the purpose and benefits of using the Autotools suite in software development projects.
+## The Need for Configuration
 
- 2. Autoconf: Detailed explanations of Autoconf, a tool responsible for generating configuration scripts that adapt software builds to various system environments and requirements.
-
- 3. Automake: In-depth coverage of Automake, a tool that simplifies the process of writing Makefiles to manage project compilation and installation.
-
- 4. Libtool: A thorough exploration of Libtool, a utility for managing shared libraries on different platforms and handling their versioning and linking.
-
- 5. M4 Macro Language: An explanation of the M4 macro language, which is extensively used by the Autotools for defining templates and generating scripts.
-
- 6. Best Practices: Guidance on best practices for using Autotools effectively, addressing common issues, and making projects more portable.
-
- 7. Debugging and Troubleshooting: Strategies for debugging configuration and build issues that may arise while using Autotools.
-
- 8. Case Studies: Real-world case studies demonstrating how to apply Autotools in various types of projects.
-
-Autotools is a comprehensive guide to the GNU Autotools, a collection of tools used in Unix-based systems for building, configuring, and distributing software projects. The book would delve into various components of the Autotools suite, which includes Autoconf, Automake, Libtool, and related utilities.
-
+> Originally, configuration scripts were hand-coded shell scripts designed to set environment variables based on platform-specific characteristics. They also allowed users to configure package options before running `make`. This approach worked well for decades, but as the number of Linux distributions and Unix-like systems grew, the variety of features and installation and configuration options exploded, so it became very difficult to write a decent portable configuration script. In fact, it was much more difficult to write a portable configuration script than it was to write makefiles for a new project. Therefore, most people just created configuration scripts for their projects by copying and modifying the script for a similar project.
+>
+> ... The number of GNU project packages had grown to hundreds, and maintaining consistency across their separate build systems had become more time-consuming than simply maintaining the code for these projects. These problems had to be solved.
+> 
+> **Autoconf** changed this paradigm almost overnight.
 
 ## **Overview**
+
+> The Autotools provide you with a build environment that allows your project to build successfully on future versions or distributions with virtually no changes to the build scripts.
+
+> About the only time it makes sense not to use the Autotools is when you’re writing software that will only run on non-Unix [POSIX-compliant] platforms, such as Microsoft Windows.
+
 Autotools provides a framework for creating portable and flexible build systems. It typically consists of these key files:
 - **configure.ac**: Input file for `autoconf`, specifies checks and options.
 - **Makefile.am**: Input file for `automake`, specifies build targets.
@@ -49,6 +43,13 @@ Autotools provides a framework for creating portable and flexible build systems.
 ---
 
 ## **Autoconf (configure.ac)**
+
+The input file for autoconf is called _configure.ac_. The simplest possible _configure.ac_ file has just two lines,
+
+```bash
+AC_INIT([Jupiter], [1.0])
+AC_OUTPUT
+```
 
 Autoconf generates the **`configure`** script, which tests system features and sets up compilation parameters.
 
@@ -134,6 +135,8 @@ EXTRA_DIST = README.md INSTALL  # Extra files to distribute
 
 ## **Libtool**
 
+How do you build shared libraries on different Unix platforms without adding a lot of very platform-specific conditional code to your build system and source code? This is the question that the Libtool project tries to address.
+
 Libtool helps manage shared libraries across platforms.
 
 ### **Libtool in `configure.ac`**:
@@ -204,7 +207,47 @@ Autoheader creates a template header file (`config.h.in`) based on the checks de
 
 ---
 
+## Release Documents
+
+Autotools, by default, expects documentation files such as `README`, `AUTHORS`, `INSTALL`, `NEWS`, and `COPYING` to be present in plain text format without extensions like `.md`. However, you can configure your `Makefile.am` to recognize files with `.md` extensions (Markdown format) by renaming them and making sure they are included properly during the packaging process.
+
+Here’s how you can configure it:
+
+1. **Rename the files**:
+   - Rename your Markdown files as `README.md`, `AUTHORS.md`, `INSTALL.md`, `NEWS.md`, and `COPYING.md`.
+
+2. **Update `Makefile.am`**:
+   In your `Makefile.am`, you can specify the locations of these Markdown files by assigning them to the appropriate variables that Autotools uses for distribution. This tells Autotools to include these files when packaging your project.
+
+   For example:
+   ```makefile
+   # Tell Autotools to look for Markdown versions of these files
+   EXTRA_DIST = README.md AUTHORS.md INSTALL.md NEWS.md COPYING.md
+
+   # Install these files as the standard ones expected by Autotools
+   dist_doc_DATA = README.md AUTHORS.md INSTALL.md NEWS.md COPYING.md
+   ```
+
+3. **Ensure the package includes these files**:
+   When you run the `make dist` command, it will package the `.md` versions of these files and include them in your distribution.
+
+4. **Optionally generate the plain-text versions**:
+   If you still need plain-text versions for compatibility, you could use a conversion tool (such as `pandoc`) in your build scripts to generate `.txt` versions of the Markdown files. For example, you could add a script or target to your `Makefile.am` to convert `README.md` to `README`:
+   ```makefile
+   README: README.md
+       pandoc README.md -o README
+   ```
+
+This way, Autotools will recognize and distribute the `.md` files while maintaining the expected behavior.
+
+---
+
 This cheat sheet covers the fundamental concepts and commands in **Autotools**. With `configure.ac` and `Makefile.am`, Autotools generates portable build systems suitable for many Unix-like environments.
+
+## Further Reading
+
+1. 
+2. [GNU Automake](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)
 
 ## Videos
 
