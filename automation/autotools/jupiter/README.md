@@ -1,6 +1,6 @@
 # Jupiter: Automake Example
 
-This folder contains material from the [Jupiter](./jupiter/) project source code repository for the No Starch Press book, Autotools, 2nd Edition. The book would delve into various components of the Autotools suite, which includes **Autoconf**, **Automake**, **Libtool**, and related utilities.
+This folder contains material from the Jupiter project source code repository for the No Starch Press book, Autotools, 2nd Edition. The book would delve into various components of the Autotools suite, which includes **Autoconf**, **Automake**, **Libtool**, and related utilities.
 
 ## File Structure
 
