@@ -1,8 +1,8 @@
 # Autotools Cheat Sheet
 
-This folder contains material from the [Jupiter](./jupiter/) project source code repository for the No Starch Press book, Autotools, 2nd Edition.
+Autotools is a comprehensive guide to the GNU Autotools, a collection of tools used in Unix-based systems for building, configuring, and distributing software projects.
 
-Autotools is a comprehensive guide to the GNU Autotools, a collection of tools used in Unix-based systems for building, configuring, and distributing software projects. The book would delve into various components of the Autotools suite, which includes **Autoconf**, **Automake**, **Libtool**, and related utilities.
+Please take note of the [Jupiter](./jupiter/) Autotools example. Explanations of the configurations are provided for the Jupiter project.
 
 ## The Need for Configuration
 
@@ -246,8 +246,8 @@ This cheat sheet covers the fundamental concepts and commands in **Autotools**. 
 
 ## Further Reading
 
-1. 
-2. [GNU Automake](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)
+1. Autotools, 2<sup>nd</sup> Edition - John Calcote
+2. [GNU Automake](https://www.gnu.org/software/automake/manual/html_node/index.html)
 
 ## Videos
 
