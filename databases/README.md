@@ -14,6 +14,12 @@ Database Management Systems (DBMS) play a critical role in the DevOps landscape,
 
 In summary, DBMS is essential in DevOps for maintaining data integrity, integrating with CI/CD pipelines, optimizing performance, and enhancing collaboration between teams. A robust DBMS supports the agile, automated, and scalable nature of modern DevOps practices, enabling faster and more reliable software delivery.
 
+Herein are cheat sheets and scripts for:
+
+- [Microsoft SQL Server](./mssql-server/)
+- [MySQL](./mysql-server/)
+- [Postgres SQL](./postgresql-server/)
+
 ## Further Reading
 
 1. Learning SQL by Alan Beaulieu

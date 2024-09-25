@@ -17,7 +17,7 @@ DevOps is a set of practices, tools, and a cultural philosophy aimed at improvin
    - **Monitoring Databases:** Continuous monitoring of database performance, availability, and health to avoid bottlenecks. Tools such as Prometheus, Datadog, and New Relic are often used for this.
    - **Backup and Recovery:** Automating database backups, replication, and disaster recovery processes to ensure data availability and integrity.
 
-4. **Monitoring and Feedback**
+4. **[Monitoring and Feedback](./logging/**
    - **Continuous Monitoring:** Real-time performance monitoring and alerting on applications, servers, and networks, using tools like Prometheus, Grafana, or ELK Stack (Elasticsearch, Logstash, and Kibana).
    - **Incident Response:** Detecting and addressing performance bottlenecks, bugs, or security issues in production environments. Feedback loops provide insights for development teams to improve the product.
 

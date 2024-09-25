@@ -1,6 +1,7 @@
 
 #!/bin/sh
 
+## Using the following script to create a local CA and SSL certificate for local development
 ## Adapted from https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/
 if [ "$#" -ne 1 ]
 then
