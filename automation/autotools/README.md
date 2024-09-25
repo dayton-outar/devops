@@ -72,6 +72,13 @@ AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 ```
 
+In the Autotools function `AC_CHECK_LIB([m], [cos])`, the second argument `[cos]` represents a function that exists within the library being checked, in this case, the `libm` math library.
+
+- **First argument** (`[m]`): Refers to the library, which is `libm` (the math library on many Unix-like systems).
+- **Second argument** (`[cos]`): Refers to a function that should be available in the `libm` library (in this case, the cosine function `cos()`).
+
+This macro checks whether the math library (`libm`) provides the `cos()` function. If this function is found in the library, it sets a flag indicating that the library can be used, otherwise, it reports that the library or function is missing.
+
 ### **Common Macros**
 - **`AC_INIT`**: Initialize the package information.
 - **`AM_INIT_AUTOMAKE`**: Initialize Automake options.
@@ -133,6 +140,18 @@ Libtool helps manage shared libraries across platforms.
 ```bash
 AC_PROG_LIBTOOL
 ```
+
+The `AC_PROG_LIBTOOL` macro in Autotools is used to detect and initialize **Libtool**, a tool that helps manage the creation of shared libraries across different platforms. Libtool abstracts the platform-specific details of building shared and static libraries, allowing developers to write portable build scripts.
+
+Here’s what it does:
+
+1. **Initializes Libtool**: It sets up the build environment to use `libtool`, preparing the project to handle shared and static libraries.
+  
+2. **Checks for `libtoolize`**: It checks if `libtool` is installed on the system and if the necessary `libtoolize` script is available.
+
+3. **Sets appropriate flags**: It adds necessary flags (`LDFLAGS`, `LIBS`, etc.) to handle linking with libraries in a platform-independent manner.
+
+After `AC_PROG_LIBTOOL` is invoked, the build system will use `libtool` to compile and link the libraries in a way that is compatible with the host platform, making it easier to manage shared libraries across different systems.
 
 ### **Libtool in `Makefile.am`**:
 ```makefile
