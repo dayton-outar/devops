@@ -72,8 +72,9 @@ A collection of simple Bash scripts.
 3. [How to Pretty-Print XML From the Command Line | Baeldung on Linux](https://www.baeldung.com/linux/pretty-print-xml)
 4. [How to Disable IPv6 on Ubuntu Linux](https://itsfoss.com/disable-ipv6-ubuntu-linux/)
 5. [Learning Ubuntu: Set Timezone](https://www.hostinger.com/tutorials/how-to-change-timezone-in-ubuntu/)
+6. [An example of how to use getopts in bash](https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash)
 
-## Tutorial Videos
+## Videos
 
 1. [Bash Basics](https://www.youtube.com/playlist?list=PLTXMX1FE5Hj5ZJDt_WMbioFpdWO5SGy8r) - [Joe Collins](https://www.youtube.com/user/BadEditPro)
 2. [Practical Bash](https://www.youtube.com/playlist?list=PLShDm2AZYnK1SdG3dufPdCqk08sOahUBP) - [kubucation](https://www.youtube.com/c/kubucation)

@@ -378,7 +378,7 @@ Symbol table '.dynsym' contains 17 entries:
 
 The fact that `show_time` has a value of 0 means that it is not yet bound to an address. This is to be expected, because the actual binding not take place until runtime. To learn more, read the man page for ELF and then for `readelf`. You can also download the specification of ELF at various websites.
 
-## Tutorial Videos<sup><a href="#fn-3">3</a></sup>
+## Videos<sup><a href="#fn-3">3</a></sup>
 
  1. [Libraries in C](https://www.youtube.com/playlist?list=PL9IEJIKnBJjFn6zQQkJ2e8vxCVxhl2yuD) - [Jacob Sorber](https://www.youtube.com/c/JacobSorber)
  2. [Debugging C Programs](https://www.youtube.com/playlist?list=PL9IEJIKnBJjHGWPN_S9NS_Ky1-tC8ZrUI) - [Jacob Sorber](https://www.youtube.com/c/JacobSorber)

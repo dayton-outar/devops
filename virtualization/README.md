@@ -16,3 +16,18 @@ Virtualization serves as the backbone for automation in DevOps. By using tools l
 
 **Conclusion**  
 Virtualization is a pivotal enabler of the modern DevOps ecosystem, providing the agility, efficiency, and consistency required for rapid, reliable software development. Its role in resource optimization, environment management, and automation has made it a critical component of any scalable DevOps strategy.
+
+## Further Reading
+
+1. [Kubernetes Cheat Sheet](https://github.com/RehanSaeed/Kubernetes-Cheat-Sheet#kubernetes-cheat-sheet)
+2. [Kubernetes Kubectl Commands Cheat Sheet](https://acloudguru.com/blog/engineering/kubernetes-cheat-sheet)
+3. [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+4. [Docker Cheatsheet](https://dev.to/vishnuchilamakuru/docker-cheatsheet-39fa)
+5. [Kubernetes 101](https://github.com/geerlingguy/kubernetes-101)
+6. [Awesome Docker Compose](https://github.com/docker/awesome-compose)
+
+## Videos
+
+1. [Ansible 101](https://www.youtube.com/playlist?list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN)
+2. [Vagrant Crash Course](https://youtu.be/vBreXjkizgo) - [Traversy Media](https://www.youtube.com/user/TechGuyWeb)
+3. [Docker For Beginners: From Docker Desktop to Deployment](https://youtu.be/i7ABlHngi1Q)

@@ -33,7 +33,7 @@ echo -n 'boom' | base64
 
 ```
 
-## Tutorial Videos
+## Videos
 
 1. [Kubernetes Explained in 100 Seconds](https://youtu.be/PziYflu8cB8) - [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)
 2. [Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours]](https://youtu.be/X48VuDVv0do) - TechWorld with Nana

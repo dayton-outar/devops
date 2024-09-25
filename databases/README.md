@@ -13,3 +13,10 @@ Database Management Systems (DBMS) play a critical role in the DevOps landscape,
 5. **Collaboration and Environment Synchronization**: DBMS tools aid in synchronizing development and production environments, allowing operations teams to replicate production databases for testing or staging environments easily. This facilitates closer collaboration between developers and operations teams, a core tenet of DevOps.
 
 In summary, DBMS is essential in DevOps for maintaining data integrity, integrating with CI/CD pipelines, optimizing performance, and enhancing collaboration between teams. A robust DBMS supports the agile, automated, and scalable nature of modern DevOps practices, enabling faster and more reliable software delivery.
+
+## Further Reading
+
+1. Learning SQL by Alan Beaulieu
+2. Microsoft SQL Server 2012 T-Fundamentals by Itzik Ben-Gan
+3. PostgreSQL: Up and Running by Regina Obe and Leo Hsu
+4. Oracle PL/SQL Programming by Steven Feuerstein
