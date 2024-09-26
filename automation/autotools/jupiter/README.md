@@ -196,6 +196,33 @@ This `configure.ac` file sets up the build configuration for the `Jupiter` proje
 
 ### Addendum
 
+#### Add Macro Directory
+
+In your `configure.ac`, the `AC_CONFIG_MACRO_DIRS([m4])` command should be placed **before any macros or commands that rely on macros located in the `m4` directory**, typically early in the file, after `AC_INIT` but before the `AM_INIT_AUTOMAKE`.
+
+Here's where you should place it in the context of your `configure.ac`:
+
+```bash
+AC_PREREQ([2.69])
+AC_INIT([Jupiter], [1.0], [jupiter-bugs@example.org])
+
+# Specify the directory for custom macros
+AC_CONFIG_MACRO_DIRS([m4])
+
+AM_INIT_AUTOMAKE
+LT_PREREQ([2.4.6])
+LT_INIT([dlopen])
+
+AC_CONFIG_SRCDIR([src/main.c])
+AC_CONFIG_HEADERS([config.h])
+```
+
+### Why at this point?
+- `AC_CONFIG_MACRO_DIRS([m4])` tells Autoconf to look for additional macros in the `m4` directory.
+- It needs to be declared early, before `AM_INIT_AUTOMAKE` and other macros that might depend on custom or external macros stored in `m4`.
+  
+This ensures that if there are any macro definitions in `m4`, they will be properly located and processed before `automake` or `libtool` macros are invoked.
+
 #### Avoid Missing Release Documents
 
 To exclude `AUTHORS`, `NEWS`, and `ChangeLog` from being required by `automake`, you can modify the `Makefile.am` file by telling `automake` not to expect these files. You can do this by overriding the `dist` targets for these files. Here’s how to do it:
@@ -217,6 +244,7 @@ This will avoid errors while still keeping `automake` satisfied.
 
 ```bash
 rm -rf autom4te.cache
+rm -rf m4
 rm -f aclocal.m4 configure config.h.in config.status config.log
 rm -f Makefile.in
 rm -f ltmain.sh
