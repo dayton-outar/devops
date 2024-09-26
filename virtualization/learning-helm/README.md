@@ -1,7 +1,5 @@
 # Learning Helm
 
-### Short Guide to Using Helm
-
 **Helm** is a package manager for Kubernetes that helps you define, install, and upgrade even the most complex Kubernetes applications. It uses "charts" to manage application deployment.
 
 Helm makes Kubernetes deployments easier by encapsulating resources into reusable packages.
