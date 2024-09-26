@@ -217,11 +217,34 @@ AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_HEADERS([config.h])
 ```
 
-### Why at this point?
+##### Why at this point?
 - `AC_CONFIG_MACRO_DIRS([m4])` tells Autoconf to look for additional macros in the `m4` directory.
 - It needs to be declared early, before `AM_INIT_AUTOMAKE` and other macros that might depend on custom or external macros stored in `m4`.
   
 This ensures that if there are any macro definitions in `m4`, they will be properly located and processed before `automake` or `libtool` macros are invoked.
+
+##### Warnings
+The warning `aclocal: warning: couldn't open directory 'm4': No such file or directory` occurs because `aclocal` is trying to search for the `m4` directory, but it doesn't exist. To resolve this issue, you need to create the `m4` directory manually.
+
+Here’s how to fix it:
+
+1. **Create the `m4` directory**:
+   ```bash
+   mkdir m4
+   ```
+
+2. **Rerun `autoreconf -i`** to regenerate the configuration files:
+   ```bash
+   autoreconf -i
+   ```
+
+Even if you don’t currently have any custom macros to place in the `m4` directory, creating it satisfies `aclocal` and prevents the warning.
+
+### Summary:
+Simply create the `m4` directory to eliminate the warning:
+```bash
+mkdir m4
+```
 
 #### Avoid Missing Release Documents
 
