@@ -2,11 +2,10 @@
 ACLOCAL_AMFLAGS = -I m4
 
 # Do not include AUTHORS, NEWS, or ChangeLog in the distribution
-DIST_SUBDIRS = $(SUBDIRS)
 EXTRA_DIST =
 
-# Prevent automake from looking for these files
-MAINTAINERCLEANFILES = ChangeLog NEWS AUTHORS
+# If you want to define them as empty files to avoid errors
+touch AUTHORS NEWS ChangeLog
 
 # Define subdirectories for the build
 SUBDIRS = common include libjup src tests
