@@ -353,3 +353,221 @@ See below what the generated `config.h` looks like,
 /* Version number of package */
 #define VERSION "1.0"
 ```
+
+#### Output after performing `autoreconf -i`
+
+```
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:12: installing './compile'
+configure.ac:12: installing './config.guess'
+configure.ac:12: installing './config.sub'
+configure.ac:10: installing './install-sh'
+configure.ac:10: installing './missing'
+Makefile.am: installing './INSTALL'
+Makefile.am: installing './COPYING' using GNU General Public License v3 file
+Makefile.am:     Consider adding the COPYING file to the version control system
+Makefile.am:     for your code, to avoid questions about which license your project uses
+common/Makefile.am: installing './depcomp'
+```
+
+### Output after performing `./configure`
+
+```
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to enable C11 features... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... yes
+checking whether a program can dlopen itself... yes
+checking whether a statically linked program can dlopen itself... no
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gcc... (cached) gcc
+checking whether the compiler supports GNU C... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to enable C11 features... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking for stdlib.h... (cached) yes
+checking for ltdl.h... yes
+checking for library containing pthread_create... none required
+checking for pthread.h... yes
+checking for library containing lt_dlopen... -lltdl
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating tests/Makefile
+config.status: creating tests/atlocal
+config.status: creating Makefile
+config.status: creating common/Makefile
+config.status: creating include/Makefile
+config.status: creating libjup/Makefile
+config.status: creating src/Makefile
+config.status: creating src/modules/hithere/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing tests/atconfig commands
+-------------------------------------------------
+
+Jupiter Version 1.0
+
+Prefix: '/usr/local'.
+Compiler: 'gcc -g -O2 '
+Libraries: '-lltdl '
+
+Package features:
+  Async Execution: yes
+
+  Now type 'make [<target>]'
+    where the optional <target> is:
+      all                - build all binaries
+      install            - install everything
+
+--------------------------------------------------
+```
+
+#### Output after performing `make`
+
+```
+make  all-recursive
+make[1]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter'
+Making all in common
+make[2]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/common'
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT print.lo -MD -MP -MF .deps/print.Tpo -c -o print.lo print.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT print.lo -MD -MP -MF .deps/print.Tpo -c print.c  -fPIC -DPIC -o .libs/print.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT print.lo -MD -MP -MF .deps/print.Tpo -c print.c -o print.o >/dev/null 2>&1
+mv -f .deps/print.Tpo .deps/print.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2   -o libjupcommon.la  print.lo  -lltdl 
+libtool: link: ar cr .libs/libjupcommon.a .libs/print.o 
+libtool: link: ranlib .libs/libjupcommon.a
+libtool: link: ( cd ".libs" && rm -f "libjupcommon.la" && ln -s "../libjupcommon.la" "libjupcommon.la" )
+make[2]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/common'
+Making all in include
+make[2]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/include'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/include'
+Making all in libjup
+make[2]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/libjup'
+/bin/bash ../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..  -I../include -I../common   -g -O2 -MT libjupiter_la-jup_print.lo -MD -MP -MF .deps/libjupiter_la-jup_print.Tpo -c -o libjupiter_la-jup_print.lo `test -f 'jup_print.c' || echo './'`jup_print.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I../common -g -O2 -MT libjupiter_la-jup_print.lo -MD -MP -MF .deps/libjupiter_la-jup_print.Tpo -c jup_print.c  -fPIC -DPIC -o .libs/libjupiter_la-jup_print.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I../common -g -O2 -MT libjupiter_la-jup_print.lo -MD -MP -MF .deps/libjupiter_la-jup_print.Tpo -c jup_print.c -o libjupiter_la-jup_print.o >/dev/null 2>&1
+mv -f .deps/libjupiter_la-jup_print.Tpo .deps/libjupiter_la-jup_print.Plo
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2   -o libjupiter.la -rpath /usr/local/lib libjupiter_la-jup_print.lo ../common/libjupcommon.la -lltdl 
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/libjupiter_la-jup_print.o  -Wl,--whole-archive ../common/.libs/libjupcommon.a -Wl,--no-whole-archive  -lltdl  -g -O2   -Wl,-soname -Wl,libjupiter.so.0 -o .libs/libjupiter.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libjupiter.so.0" && ln -s "libjupiter.so.0.0.0" "libjupiter.so.0")
+libtool: link: (cd ".libs" && rm -f "libjupiter.so" && ln -s "libjupiter.so.0.0.0" "libjupiter.so")
+libtool: link: (cd .libs/libjupiter.lax/libjupcommon.a && ar x "/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/libjup/../common/.libs/libjupcommon.a")
+libtool: link: ar cr .libs/libjupiter.a  libjupiter_la-jup_print.o  .libs/libjupiter.lax/libjupcommon.a/print.o 
+libtool: link: ranlib .libs/libjupiter.a
+libtool: link: rm -fr .libs/libjupiter.lax
+libtool: link: ( cd ".libs" && rm -f "libjupiter.la" && ln -s "../libjupiter.la" "libjupiter.la" )
+make[2]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/libjup'
+Making all in src
+make[2]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/src'
+Making all in modules/hithere
+make[3]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/src/modules/hithere'
+/bin/bash ../../../libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I../../..     -g -O2 -MT hithere.lo -MD -MP -MF .deps/hithere.Tpo -c -o hithere.lo hithere.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -g -O2 -MT hithere.lo -MD -MP -MF .deps/hithere.Tpo -c hithere.c  -fPIC -DPIC -o .libs/hithere.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I../../.. -g -O2 -MT hithere.lo -MD -MP -MF .deps/hithere.Tpo -c hithere.c -o hithere.o >/dev/null 2>&1
+mv -f .deps/hithere.Tpo .deps/hithere.Plo
+/bin/bash ../../../libtool  --tag=CC   --mode=link gcc  -g -O2 -module -avoid-version  -o hithere.la -rpath /usr/local/lib/jupiter hithere.lo  -lltdl 
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/hithere.o   -lltdl  -g -O2   -Wl,-soname -Wl,hithere.so -o .libs/hithere.so
+libtool: link: ar cr .libs/hithere.a  hithere.o
+libtool: link: ranlib .libs/hithere.a
+libtool: link: ( cd ".libs" && rm -f "hithere.la" && ln -s "../hithere.la" "hithere.la" )
+make[3]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/src/modules/hithere'
+make[3]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/src'
+gcc -DHAVE_CONFIG_H -I. -I..  -I../include   -g -O2 -MT jupiter-main.o -MD -MP -MF .deps/jupiter-main.Tpo -c -o jupiter-main.o `test -f 'main.c' || echo './'`main.c
+mv -f .deps/jupiter-main.Tpo .deps/jupiter-main.Po
+/bin/bash ../libtool  --tag=CC   --mode=link gcc  -g -O2   -o jupiter jupiter-main.o ../libjup/libjupiter.la -dlopen modules/hithere/hithere.la -lltdl 
+libtool: link: rm -f .libs/jupiter.nm .libs/jupiter.nmS .libs/jupiter.nmT
+libtool: link: rm -f ".libs/jupiter.nmI"
+libtool: link: (cd .libs && gcc -g -O2 -c -fno-builtin "jupiterS.c")
+libtool: link: rm -f ".libs/jupiterS.c" ".libs/jupiter.nm" ".libs/jupiter.nmS" ".libs/jupiter.nmT" ".libs/jupiter.nmI"
+libtool: link: gcc -g -O2 -o .libs/jupiter jupiter-main.o .libs/jupiterS.o  ../libjup/.libs/libjupiter.so -lltdl
+make[3]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/src'
+make[2]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/src'
+Making all in tests
+make[2]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/tests'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter/tests'
+make[2]: Entering directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter'
+make[2]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter'
+make[1]: Leaving directory '/home/dayton/Documents/Projects/devops/automation/autotools/jupiter'
+```
