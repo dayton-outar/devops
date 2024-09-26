@@ -12,9 +12,7 @@ This folder contains material from the Jupiter project source code repository fo
 - `configure.ac`: Configuration for this project
 - `Makefile.am`: Automake that makes reference to recursively build projects containing header files and implementations
 
-   Reference is made to 5 sub-directories: _common_, _include_, _libjup_, _src_, and _tests_. These directories contain further instructions in their _Makefile.am_
-
-   ...
+   Reference is made to 5 sub-directories: _[common](./common/)_, _[include](./include/)_, _[libjup](./libjup/)_, _[src](./src/)_, and _[tests](./tests/)_. These directories contain further instructions in their _Makefile.am_
 
 ## How the Autoconf works in Jupiter
 
