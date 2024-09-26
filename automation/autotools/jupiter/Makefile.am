@@ -5,7 +5,7 @@ ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST =
 
 # If you want to define them as empty files to avoid errors
-touch AUTHORS NEWS ChangeLog
+# touch AUTHORS NEWS ChangeLog
 
 # Define subdirectories for the build
 SUBDIRS = common include libjup src tests
