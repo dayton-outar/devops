@@ -2,6 +2,13 @@
 
 The provided `Makefile.am` instructions define how to build a shared library named `libjupiter.la`. Here's a breakdown of each line:
 
+```
+lib_LTLIBRARIES = libjupiter.la
+libjupiter_la_SOURCES = jup_print.c
+libjupiter_la_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/common
+libjupiter_la_LIBADD = ../common/libjupcommon.la
+```
+
 1. `lib_LTLIBRARIES = libjupiter.la`
 - **Purpose**: This line indicates that a shared library named `libjupiter.la` will be built.
 - **`lib_LTLIBRARIES`**: This variable specifies libraries that should be built as Libtool shared libraries (indicated by the `.la` extension). These libraries can be linked with other programs and libraries.

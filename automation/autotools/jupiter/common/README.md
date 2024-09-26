@@ -2,6 +2,14 @@
 
 Here’s a breakdown of what each line does:
 
+```
+noinst_LTLIBRARIES = libjupcommon.la
+libjupcommon_la_SOURCES = jupcommon.h print.c
+
+check_PROGRAMS = test_print
+test_print_SOURCES = test_print.c
+```
+
 1. `noinst_LTLIBRARIES = libjupcommon.la`
 - **Purpose**: This line specifies that a shared library named `libjupcommon.la` will be built, but it will not be installed in the system directories.
 - **`noinst_LTLIBRARIES`**: This variable indicates that the library is for internal use only (not intended for installation). It won't be available for other projects or users outside of the current build environment.

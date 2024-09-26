@@ -2,6 +2,15 @@
 
 Here’s a breakdown of the instructions in the provided `Makefile.am`:
 
+```
+SUBDIRS = modules/hithere
+
+bin_PROGRAMS = jupiter
+jupiter_SOURCES = main.c module.h
+jupiter_CPPFLAGS = -I$(top_srcdir)/include
+jupiter_LDADD = ../libjup/libjupiter.la -dlopen modules/hithere/hithere.la
+```
+
 1. `lib_LTLIBRARIES = libjupiter.la`
 - **Definition**: This line specifies that a shared library named `libjupiter.la` will be created.
 - **Explanation**: The variable `lib_LTLIBRARIES` is used by Automake to indicate which libraries should be built using Libtool (denoted by the `.la` extension). This library can be linked into other programs or libraries.
