@@ -2,6 +2,12 @@
 
 This `Makefile.am` snippet is used in the context of an Automake-based build system to describe how to build a dynamic module called `hithere.la`. Let's break it down:
 
+```
+pkglib_LTLIBRARIES = hithere.la
+hithere_la_SOURCES = hithere.c
+hithere_la_LDFLAGS = -module -avoid-version
+```
+
 1. **`pkglib_LTLIBRARIES = hithere.la`**
 - **Explanation**: This line specifies that the build target is a library called `hithere.la`, and it will be installed in the `pkglibdir` directory (a standard directory for installing architecture-independent libraries specific to a package).
   
