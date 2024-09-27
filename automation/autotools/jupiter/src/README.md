@@ -145,3 +145,7 @@ This program prints a salutation. If the Libtool dynamic loader (`ltdl`) is avai
 ## Further Reading
 
 1. [Shared library support for GNU](https://www.gnu.org/software/libtool/manual/html_node/index.html)
+
+## Videos
+
+1. [How to Load Libraries at Runtime](https://youtu.be/_kIa4D7kQ8I?si=p46qZ4uqh-GPJs3Z)
