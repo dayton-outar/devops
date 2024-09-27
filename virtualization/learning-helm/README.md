@@ -6,7 +6,9 @@ Helm makes Kubernetes deployments easier by encapsulating resources into reusabl
 
 A Helm Chart is a collection of files that describe a related set of Kubernetes resources.
 
-#### 1. **Installation**
+## Basic User Guide
+
+1. **Installation**
    - **MacOS:**
      ```bash
      brew install helm
@@ -18,7 +20,7 @@ A Helm Chart is a collection of files that describe a related set of Kubernetes 
      choco install kubernetes-helm
      ```
 
-#### 2. **Basic Helm Commands**
+2. **Basic Helm Commands**
    - **Search Charts:**
      Search for a Helm chart from a Helm repository (e.g., the official stable repo):
      ```bash
@@ -39,7 +41,7 @@ A Helm Chart is a collection of files that describe a related set of Kubernetes 
      helm repo update
      ```
 
-#### 3. **Installing a Chart**
+3. **Installing a Chart**
    Install a chart into a Kubernetes cluster:
    ```bash
    helm install <release-name> <chart-name>
@@ -49,25 +51,25 @@ A Helm Chart is a collection of files that describe a related set of Kubernetes 
    helm install my-wordpress bitnami/wordpress
    ```
 
-#### 4. **Upgrade a Release**
+4. **Upgrade a Release**
    Upgrade an existing release:
    ```bash
    helm upgrade <release-name> <chart-name>
    ```
 
-#### 5. **Uninstall a Release**
+5. **Uninstall a Release**
    Uninstall a release:
    ```bash
    helm uninstall <release-name>
    ```
 
-#### 6. **List Installed Releases**
+6. **List Installed Releases**
    To list all the installed Helm releases:
    ```bash
    helm list
    ```
 
-#### 7. **Rollback a Release**
+7. **Rollback a Release**
    Roll back to a previous release revision:
    ```bash
    helm rollback <release-name> <revision-number>
@@ -75,7 +77,7 @@ A Helm Chart is a collection of files that describe a related set of Kubernetes 
 
 ---
 
-### Helm Cheat Sheet
+## Helm Cheat Sheet
 
 | **Command**                      | **Description**                                      |
 |-----------------------------------|------------------------------------------------------|
@@ -111,6 +113,140 @@ Perform the following to test out the chart to see what it would have Kubernetes
 ```bash
 helm install --dry-run --debug [chart name]
 ```
+
+---
+
+## Concise Guide to Developing a Helm Chart Template
+
+1. **Setup Helm:**
+   - Install Helm: `brew install helm` (Mac) or via [Helm installation](https://helm.sh/docs/intro/install/).
+   - Create a chart: `helm create <chart-name>`.
+
+2. **Directory Structure:**
+   - `templates/`: Contains Kubernetes manifest templates.
+   - `values.yaml`: Defines variables that the templates can use.
+
+3. **Modifying Templates:**
+   - Templates are Go templates that get rendered based on values in `values.yaml`.
+   - Example template in `templates/deployment.yaml`:
+     ```yaml
+     apiVersion: apps/v1
+     kind: Deployment
+     metadata:
+       name: {{ .Release.Name }}-deployment
+     spec:
+       replicas: {{ .Values.replicaCount }}
+       template:
+         spec:
+           containers:
+             - name: app
+               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+     ```
+
+4. **Values in `values.yaml`:**
+   ```yaml
+   replicaCount: 2
+   image:
+     repository: my-app
+     tag: latest
+   ```
+
+5. **Rendering the Template:**
+   - Test rendering: `helm template <chart-name>`.
+   - Install the chart: `helm install <release-name> ./<chart-name>`.
+
+6. **Adding Logic:**
+   - Helm allows conditional statements and loops.
+   - Example of conditionals:
+     ```yaml
+     replicas: {{ if .Values.isProduction }}3{{ else }}1{{ end }}
+     ```
+
+7. **Package & Share:**
+   - Package your chart: `helm package <chart-directory>`.
+   - Share charts via Helm repositories or artifact storage.
+
+---
+
+### Helm Template Syntax Cheat Sheet
+
+1. **Variables:**
+   - Access chart values: `{{ .Values.<key> }}`
+   - Access release info: `{{ .Release.Name }}`
+
+2. **Control Structures:**
+   - **Conditionals**: 
+     ```yaml
+     {{ if <condition> }}
+     {{ else if <condition> }}
+     {{ else }}
+     {{ end }}
+     ```
+   - **Loops**:
+     ```yaml
+     {{ range $key, $value := .Values.list }}
+       {{ $key }}: {{ $value }}
+     {{ end }}
+     ```
+
+3. **Functions:**
+   - **Default values**: `{{ .Values.timeout | default 30 }}`
+   - **Quote strings**: `{{ quote .Values.name }}`
+   - **Include templates**: 
+     ```yaml
+     {{ include "template-name" . }}
+     ```
+
+4. **Pipelines:**
+   - Chain functions:
+     ```yaml
+     {{ .Values.name | upper | quote }}
+     ```
+
+5. **YAML Formatting:**
+   - Use `nindent` to align nested content properly:
+     ```yaml
+     {{- nindent 4 "text" }}
+     ```
+
+This guide should get you started with Helm chart templates and provide a reference for common template syntax.
+
+Here’s an example of how `.Values.list` can be defined in `values.yaml`:
+
+```yaml
+list:
+  - name: item1
+    value: 100
+  - name: item2
+    value: 200
+  - name: item3
+    value: 300
+```
+
+You can then reference and loop through this list in your templates like this:
+
+```yaml
+items:
+{{- range .Values.list }}
+  - name: {{ .name }}
+    value: {{ .value }}
+{{- end }}
+```
+
+This will output:
+
+```yaml
+items:
+  - name: item1
+    value: 100
+  - name: item2
+    value: 200
+  - name: item3
+    value: 300
+```
+
+This is useful when you need to iterate over a list of similar objects defined in `values.yaml`.
+
 
 ## Further Reading
 
