@@ -1,4 +1,6 @@
-# How this _Makefile.am_ works
+## Jupiter
+
+## How this _Makefile.am_ works
 
 Here’s a breakdown of the instructions in the provided `Makefile.am`:
 
@@ -36,7 +38,106 @@ Here’s a breakdown of the provided `Makefile.am`:
 - **Explanation**: The variable `jupiter_LDADD` lists the libraries to be linked when building the `jupiter` executable:
   - `../libjup/libjupiter.la`: This indicates that the `jupiter` program will be linked with the shared library `libjupiter.la` located in the `libjup` directory, which is one level up from the current directory.
   - `-dlopen modules/hithere/hithere.la`: This option is used to link with the `hithere.la` library located in the `modules/hithere` directory. The `-dlopen` flag allows for dynamic loading of the library at runtime.
-  
-## Summary
 
 In summary, this `Makefile.am` defines the build process for the `jupiter` executable, specifying its source files, include paths, and libraries for linking. Additionally, it instructs the build system to process a subdirectory, ensuring that any components in `modules/hithere` are also included in the overall build.
+
+## The Main Program
+
+This C code is structured to include modular functionality using the Libtool dynamic module loading system. It features conditional compilation to support optional inclusion of `ltdl` (Libtool's dynamic loading library). Here's an explanation of the different parts:
+
+### 1. **Header Files**
+```c
+#include "config.h"
+#include "libjupiter.h"
+#include "module.h"
+```
+- `config.h`: Likely defines macros such as `HAVE_LTDL_H` used for conditional compilation.
+- `libjupiter.h`: Presumably defines the `jupiter_print` function and other related functionalities from the "Jupiter" library.
+- `module.h`: Likely declares functions related to module handling, like `get_salutation_t` (a function pointer type).
+
+```c
+#if HAVE_LTDL_H
+# include <ltdl.h>
+#endif
+```
+- If `HAVE_LTDL_H` is defined (likely set based on system configuration), the Libtool `ltdl.h` header is included. This header provides functions for dynamically loading modules (`lt_dlinit`, `lt_dlopen`, etc.).
+
+### 2. **Main Function**
+```c
+#define DEFAULT_SALUTATION "Hello"
+```
+- Defines a default salutation, `"Hello"`, which will be used if no alternative is provided by a loaded module.
+
+```c
+int main(int argc, char * argv[])
+{
+    int rv;
+    const char * salutation = DEFAULT_SALUTATION;
+```
+- The `main` function starts with an integer `rv` (likely the return value), and a string `salutation`, initialized to `"Hello"`.
+
+### 3. **Conditional Dynamic Module Loading (with ltdl)**
+```c
+#if HAVE_LTDL_H
+    int ltdl;
+    lt_dlhandle module;
+    get_salutation_t * get_salutation_fp = 0;
+```
+- **Libtool section**: This code is compiled only if `HAVE_LTDL_H` is defined.
+    - `ltdl`: Tracks the success/failure of initializing `ltdl`.
+    - `module`: Holds a handle to the loaded module.
+    - `get_salutation_fp`: A function pointer to a function returning a salutation (presumably from a dynamically loaded module).
+
+```c
+LTDL_SET_PRELOADED_SYMBOLS();
+```
+- **Preloading symbols**: This macro prepares Libtool to work with preloaded dynamic symbols if applicable.
+
+```c
+ltdl = lt_dlinit();
+if (ltdl == 0)
+{
+    module = lt_dlopen("modules/hithere/hithere.la");
+    if (module != 0)
+    {
+        get_salutation_fp = (get_salutation_t *)lt_dlsym(module, GET_SALUTATION_SYM);
+        if (get_salutation_fp != 0)
+            salutation = get_salutation_fp();
+    }
+}
+```
+- **Dynamic loading**:
+    - `lt_dlinit()` initializes the dynamic loader. If successful (`ltdl == 0`), the program attempts to load a module.
+    - `lt_dlopen("modules/hithere/hithere.la")` tries to load the module from the specified path.
+    - If the module is successfully loaded, `lt_dlsym(module, GET_SALUTATION_SYM)` retrieves a symbol (function pointer) from the module. The function is expected to return a salutation string.
+    - If successful, the `salutation` is updated with the value returned by `get_salutation_fp()`.
+
+### 4. **Printing the Salutation**
+```c
+rv = jupiter_print(salutation, argv[0]);
+```
+- `jupiter_print` is called with the `salutation` (either `"Hello"` or a value returned by the dynamically loaded module) and the program's name (`argv[0]`). It likely prints the salutation and the program name.
+
+### 5. **Cleanup**
+```c
+#if HAVE_LTDL_H
+    if (ltdl == 0)
+    {
+        if (module != 0)
+            lt_dlclose(module);
+        lt_dlexit();
+    }
+#endif
+```
+- **Cleanup**:
+    - If `ltdl` was initialized successfully (`ltdl == 0`), the code ensures that the module is closed (`lt_dlclose`) and the dynamic loader is cleaned up (`lt_dlexit`).
+
+### 6. **Return**
+```c
+return rv;
+```
+- The program returns the result of `jupiter_print`.
+
+## Summary
+
+This program prints a salutation. If the Libtool dynamic loader (`ltdl`) is available and configured, it attempts to load a module to fetch a custom salutation function. Otherwise, it defaults to printing `"Hello"`.
