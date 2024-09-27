@@ -250,6 +250,10 @@ echo -n 'boom' | base64
 2. [Automated Tasks with Cronjob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)
 3. [Kubernetes Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 4. [WARNING: Kubernetes configuration file is group/world-readable](https://github.com/helm/helm/issues/9115)
+5. [Kubernetes Cheat Sheet](https://github.com/RehanSaeed/Kubernetes-Cheat-Sheet#kubernetes-cheat-sheet)
+6. [Kubernetes Kubectl Commands Cheat Sheet](https://acloudguru.com/blog/engineering/kubernetes-cheat-sheet)
+7. [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+8. [Kubernetes 101](https://github.com/geerlingguy/kubernetes-101)
 
 ## Videos
 

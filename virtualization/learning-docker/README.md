@@ -328,3 +328,9 @@ This cheat sheet covers most of the common Docker commands to manage containers,
 
 1. [Docker Docs](https://docs.docker.com/)
 2. [Docker Tagging: Best practices for tagging and versioning docker images](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)
+3. [Docker Cheatsheet](https://dev.to/vishnuchilamakuru/docker-cheatsheet-39fa)
+4. [Awesome Docker Compose](https://github.com/docker/awesome-compose)
+
+## Videos
+
+1. [Docker For Beginners: From Docker Desktop to Deployment](https://youtu.be/i7ABlHngi1Q)
