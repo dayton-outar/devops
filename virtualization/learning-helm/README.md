@@ -168,7 +168,7 @@ helm install --dry-run --debug [chart name]
 
 ---
 
-### Helm Template Syntax Cheat Sheet
+## Helm Template Syntax Cheat Sheet
 
 1. **Variables:**
    - Access chart values: `{{ .Values.<key> }}`
