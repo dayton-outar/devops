@@ -382,6 +382,7 @@ The fact that `show_time` has a value of 0 means that it is not yet bound to an 
 
  1. [Libraries in C](https://www.youtube.com/playlist?list=PL9IEJIKnBJjFn6zQQkJ2e8vxCVxhl2yuD) - [Jacob Sorber](https://www.youtube.com/c/JacobSorber)
  2. [Debugging C Programs](https://www.youtube.com/playlist?list=PL9IEJIKnBJjHGWPN_S9NS_Ky1-tC8ZrUI) - [Jacob Sorber](https://www.youtube.com/c/JacobSorber)
+ 3. [Write Better Code! | How to Create Shared Libraries in C/C++](https://youtu.be/Slfwk28vhws?si=e2FnJFGshm9kDqM9)
 ___
 
 &copy; Prof. Stewart Weiss

@@ -121,4 +121,5 @@ helm install --dry-run --debug [chart name]
 ## Tutorial Videos
 
 1. [Create a Helm chart](https://youtu.be/TJ9hPLn0oAs)
-2. [Kubernetes & Helm](https://www.youtube.com/playlist?list=PL34sAs7_26wM3HHa6IcTHCGGF3GHNhbcc) - [Just me and Opensource](https://www.youtube.com/c/wenkatn-justmeandopensource)
+2. [How to Create Helm Charts - The Ultimate Guide](https://youtu.be/jUYNS90nq8U?si=quBiaG6Xrody-LwY)
+3. [Kubernetes & Helm](https://www.youtube.com/playlist?list=PL34sAs7_26wM3HHa6IcTHCGGF3GHNhbcc) - [Just me and Opensource](https://www.youtube.com/c/wenkatn-justmeandopensource)
