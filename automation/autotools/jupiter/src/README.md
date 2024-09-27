@@ -141,3 +141,7 @@ return rv;
 ## Summary
 
 This program prints a salutation. If the Libtool dynamic loader (`ltdl`) is available and configured, it attempts to load a module to fetch a custom salutation function. Otherwise, it defaults to printing `"Hello"`.
+
+## Further Reading
+
+1. [Shared library support for GNU](https://www.gnu.org/software/libtool/manual/html_node/index.html)
