@@ -492,6 +492,10 @@ create trigger t_delete_knd on knd
 	end;
 ```
 
+## Videos
+
+1. [7 Simple Tricks to Instantly Make Your SQL Queries Better](https://youtu.be/p5PKnqGyDaE?si=3oNIFr0X-pqGisqT)
+
 ## Further Reading
 
 1. [SQL Server CURSOR](https://www.sqlservertutorial.net/sql-server-stored-procedures/sql-server-cursor/)
