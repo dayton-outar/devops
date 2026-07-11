@@ -1,0 +1,10 @@
+database:
+    type: postgresql:16
+    disk: 1024
+
+networkstorage:
+    type: network-storage:1.0
+    disk: 512
+
+# blackfire:
+#     type: blackfire:1.0

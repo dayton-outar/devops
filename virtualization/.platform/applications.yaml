@@ -1,0 +1,146 @@
+api:
+  type: php:8.4
+  runtime:
+    extensions:
+      - apcu
+      - mbstring
+      - sodium
+      - ctype
+      - iconv
+      - pdo_pgsql
+      # - blackfire
+
+  # Relationships enable an app container's access to a service.
+  relationships:
+    database: "database:postgresql"
+    mercure: "mercure:http"
+    # blackfire: "blackfire:blackfire"
+
+  workers:
+    queue:
+      commands:
+        # start: "php bin/console messenger:consume async --memory-limit=128M -q"
+        start: |
+          while true; do
+            echo "Worker is restarting..."
+            php bin/console messenger:consume async --memory-limit=128M --time-limit=120 -q
+            echo "Worker exited, restarting in 1 second..."
+            sleep 1
+          done
+      disk: 1024
+      mounts:
+        "/var": { source: local, source_path: var }
+        "mnt/uploads": 
+          source: service
+          service: networkstorage
+          source_path: uploads
+      relationships:
+        database: "database:postgresql"
+        mercure: "mercure:http"
+
+  build:
+    flavor: none
+
+  disk: 512
+
+  web:
+    locations:
+      "/":
+        root: "public"
+        expires: 1h
+        passthru: "/index.php"
+        rules:
+          # Serve static .txt files directly
+          '\.txt$':
+            allow: true
+            expires: 1h
+            headers:
+              Content-Type: text/plain
+              Content-Disposition: inline
+          '/_[a-zA-Z0-9]+$':
+            allow: true
+            headers:
+              Content-Type: text/plain
+              Content-Disposition: inline
+        headers:
+          Access-Control-Allow-Origin: "*"
+          # Content Security Policy - Start with Report-Only mode for testing
+          Content-Security-Policy-Report-Only: "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+          # Additional Security Headers
+          X-Frame-Options: "DENY"
+          X-Content-Type-Options: "nosniff"
+          X-XSS-Protection: "1; mode=block"
+          Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload"
+          Referrer-Policy: "strict-origin-when-cross-origin"
+          Permissions-Policy: "geolocation=(), microphone=(), camera=()"
+
+  mounts:
+    "/var": { source: local, source_path: var }
+    "mnt/uploads": 
+      source: service
+      service: networkstorage
+      source_path: uploads 
+
+  hooks:
+    build: |
+      set -x -e
+      curl -fs https://get.symfony.com/cloud/configurator | bash
+      NODE_VERSION=18 symfony-build
+
+      # Install assets into public/
+      php bin/console assets:install public --no-debug --env=prod
+
+    deploy: |
+      symfony deploy
+
+mercure:
+  type: golang:1.22
+
+  build:
+    flavor: "none"
+
+  disk: 1024
+
+  variables:
+    env:
+      SERVER_NAME: ":8888"
+      MERCURE_TRANSPORT_URL: "bolt:///var/run/mercure.db"
+      MERCURE_PUBLISHER_JWT_KEY: "!ChangeThisMercureHubJWTSecretKey!"
+      MERCURE_SUBSCRIBER_JWT_KEY: "!ChangeThisMercureHubJWTSecretKey!"
+      GLOBAL_OPTIONS: |
+        auto_https off
+        admin off
+      MERCURE_EXTRA_DIRECTIVES: |
+        # Allow all CORS origins
+        cors_origins *
+        # Allow all publishers
+        publish_origins *
+        # Enable the subscription endpoint (default is enabled)
+        subscriptions
+        # Enable the publishing endpoint (default is enabled)
+        publish
+        # Enable UI
+        ui
+
+  web:
+    commands:
+      start: ./mercure run
+
+    locations:
+      "/":
+        passthru: true
+        scripts: false
+        # Whether to allow serving files which don't match a rule.
+        allow: true
+        request_buffering:
+          enabled: false
+        headers:
+          Access-Control-Allow-Origin: "*"
+
+  mounts:
+    "database": { source: local, source_path: "database" }
+    "/.local": { source: local, source_path: ".local" }
+    "/.config": { source: local, source_path: ".config" }
+
+  hooks:
+    build: ./mercure.sh
