@@ -1,3 +1,5 @@
+*.pdf
+
 .vscode
 .vagrant
 wordpress
