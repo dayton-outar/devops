@@ -76,7 +76,11 @@ See Also The practice at the end of this lesson walks you through the process of
 
 Figure 3-2 shows FxCop discovering a number of weaknesses in an assembly, includ- ing uncaught exceptions.
 
-> [Figure 3-2 placeholder — FxCop discovers that specific exceptions are not caught. Source: section 2 source PDF above, PDF page 3.]
+![Figure 3-2: FxCop discovers that specific exceptions are not caught.](/.attachments/3-2-Implementing.Security.for.Applications-2005-3-2.png)
+
+*Figure 3-2: FxCop discovers that specific exceptions are not caught.*
+
+<!-- Source: Implementing.Security.for.Applications-2005-3-2.pdf, PDF page 3. -->
 
 <!-- Section 2, PDF page 4 -->
 
@@ -98,7 +102,11 @@ To install Network Monitor on Windows Server 2003:
 
 After installation, you can run Network Monitor from the Administrative Tools group. You can run Network Monitor on either the client or the server; however, the version of Network Monitor included free with Microsoft server operating systems is capable of capturing only traffic sent to or from the computer on which it is running. Figure 3-3 shows captured Web communications—evidently unencrypted, because the details of the request are visible.
 
-> [Figure 3-3 placeholder — Use Network Monitor to verify that Network Communications cannot be easily analyzed. Source: section 2 source PDF above, PDF page 4.]
+![Figure 3-3: Use Network Monitor to verify that Network Communications cannot be easily analyzed.](/.attachments/3-3-Implementing.Security.for.Applications-2005-3-2.png)
+
+*Figure 3-3: Use Network Monitor to verify that Network Communications cannot be easily analyzed.*
+
+<!-- Source: Implementing.Security.for.Applications-2005-3-2.pdf, PDF page 4. -->
 
 <!-- Section 2, PDF page 5 -->
 
@@ -118,7 +126,11 @@ Application Center Test, a tool included with Visual Studio .NET, is primarily d
 
 Figure 3-4 shows a Web application being tested. As shown in the figure, the Web application is responding to between 0 and 40 requests per second—a relatively low rate that is not likely to withstand even an unsophisticated DoS attack. However, the application is not producing HTTP errors, which is a good sign.
 
-> [Figure 3-4 placeholder — Microsoft Application Center Test is a good way to test resistance to DoS attacks. Source: section 2 source PDF above, PDF page 6.]
+![Figure 3-4: Microsoft Application Center Test is a good way to test resistance to DoS attacks.](/.attachments/3-4-Implementing.Security.for.Applications-2005-3-2.png)
+
+*Figure 3-4: Microsoft Application Center Test is a good way to test resistance to DoS attacks.*
+
+<!-- Source: Implementing.Security.for.Applications-2005-3-2.pdf, PDF page 6. -->
 
 Application Center Test produced the following summary output from a live Web server that handled about 250 requests per second. In the Response Codes section, notice that 100 percent of the response codes were 200—the HTTP success response code. An application that was less resistant to DoS attacks would have begun returning other HTTP response codes, such as 500.
 
@@ -244,7 +256,11 @@ Visual Studio .NET 2003 compiles the application.
 
 FxCop displays a list of rules that have been violated, as shown in Figure 3-5.
 
-> [Figure 3-5 placeholder — FxCop displays an analysis of the sample application. Source: section 2 source PDF above, PDF page 9.]
+![Figure 3-5: FxCop displays an analysis of the sample application.](/.attachments/3-5-Implementing.Security.for.Applications-2005-3-2.png)
+
+*Figure 3-5: FxCop displays an analysis of the sample application.*
+
+<!-- Source: Implementing.Security.for.Applications-2005-3-2.pdf, PDF page 9. -->
 
 <!-- Section 2, PDF page 10 -->
 
@@ -252,7 +268,11 @@ FxCop displays a list of rules that have been violated, as shown in Figure 3-5.
 
 10. In the Active Message Details dialog box, click the Rule Details tab, shown in Figure 3-6.
 
-> [Figure 3-6 placeholder — FxCop provides detailed information about broken rules. Source: section 2 source PDF above, PDF page 10.]
+![Figure 3-6: FxCop provides detailed information about broken rules.](/.attachments/3-6-Implementing.Security.for.Applications-2005-3-2.png)
+
+*Figure 3-6: FxCop provides detailed information about broken rules.*
+
+<!-- Source: Implementing.Security.for.Applications-2005-3-2.pdf, PDF page 10. -->
 
 11. Read the description and additional information. (Chapter 6, “Implementing Code Access Security,” provides more information about permission requests.)
 

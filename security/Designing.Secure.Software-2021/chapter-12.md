@@ -12,7 +12,11 @@ Testing leads to failure, and failure leads to understanding.
 
 —Burt Rutan
 
-> [Decorative chapter-opening artwork placeholder — source S12, PDF page 1.]
+![Figure 12-2: Chapter-opening artwork](/.attachments/12-2-Designing.Secure.Software-2021-12.png)
+
+*Figure 12-2: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-12.pdf, PDF page 1. -->
 
 This chapter introduces security testing as an essential part of developing reliable, secure code. Testing proactively to detect security vulnerabilities is both well understood and not difficult to do, but it’s vastly underutilized in practice and so represents a major opportunity to raise security assurance.
 
@@ -397,7 +401,11 @@ The “Y2K bug” is now a distant memory of a non-event (possibly due to the ex
 
 <!-- Source S12, PDF page 15 -->
 
-> [Figure 12-1: Bug (courtesy of Randall Munroe, xkcd.com/376) — image placeholder; source S12, PDF page 15.]
+![Figure 12-1: Bug (courtesy of Randall Munroe, xkcd.com/376 )](/.attachments/12-1-Designing.Secure.Software-2021-12.png)
+
+*Figure 12-1: Bug (courtesy of Randall Munroe, xkcd.com/376 )*
+
+<!-- Source: Designing.Secure.Software-2021-12.pdf, PDF page 15. -->
 
 ### Distributed Denial-of-Service Attacks
 

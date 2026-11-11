@@ -12,7 +12,11 @@ A good, sympathetic review is always a wonderful surprise.
 
 —Joyce Carol Oates
 
-> [Decorative chapter-opening artwork placeholder — source S7, PDF page 1.]
+![Figure 7-1: Chapter-opening artwork](/.attachments/7-1-Designing.Secure.Software-2021-7.png)
+
+*Figure 7-1: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-7.pdf, PDF page 1. -->
 
 One of the best ways to bake security into software is to separately review designs with your “security hat” on. This chapter explains how to apply the security and privacy design concepts discussed in the last chapter in a security design review (SDR). Think of this process as akin to when an architect designs a building and an engineer then reviews the design to ensure that it’s safe and sound. Both the designer and the reviewer need to understand structural engineering and building codes, and by working together, they can achieve higher levels of quality and trust.
 

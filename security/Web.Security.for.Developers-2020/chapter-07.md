@@ -16,7 +16,11 @@ In the next chapter, you’ll look at how hackers can use JavaScript vulnerabili
 
 ### Cross-Site Scripting Attacks
 
-> [Decorative chapter-opening artwork placeholder — source S7, PDF page 2; 9 image tiles.]
+![Figure 7-4: Chapter-opening artwork](/.attachments/7-4-Web.Security.for.Developers-2020-7.png)
+
+*Figure 7-4: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-7.pdf, PDF page 2. -->
 
 In the previous chapter, you saw how attackers can inject code into web servers to compromise websites. If your web server is secure, a hacker’s next best injection target is the web browser. Browsers obediently execute any JavaScript code that appears in a web page, so if an
 
@@ -38,13 +42,21 @@ Malicious JavaScript can be planted in a database by using the SQL injection met
 
 Let’s look at a concrete example. Imagine you run a popular website for people who like to bake, https://breddit.com. Your site encourages users to participate in discussion threads about bread-related topics. While using the online forum for discussion, the users themselves contribute most of the site’s content. When a user adds a post, your website records it to the database and shows it to other users participating in the same thread. This is a perfect opportunity for an attacker to inject some JavaScript through a comment, as shown in Figure 7-1.
 
-> [Figure 7-1: An attacker injects JavaScript through a comment. — image placeholder; source S7, PDF page 3.]
+![Figure 7-1: An attacker injects JavaScript through a comment.](/.attachments/7-1-Web.Security.for.Developers-2020-7.png)
+
+*Figure 7-1: An attacker injects JavaScript through a comment.*
+
+<!-- Source: Web.Security.for.Developers-2020-7.pdf, PDF page 3. -->
 
 <!-- Source S7, PDF page 4 -->
 
 If your website doesn’t escape the injected script when it renders the HTML (as we’ll discuss in the following section), the next user to view the thread will have the attacker’s `<script>` tag written out to their browser and executed, as shown in Figure 7-2.
 
-> [Figure 7-2: An attacker’s &lt;script&gt; tag is written out to the victim’s browser and executed. — image placeholder; source S7, PDF page 4.]
+![Figure 7-2: An attacker’s &lt;script&gt; tag is written out to the victim’s browser and executed.](/.attachments/7-2-Web.Security.for.Developers-2020-7.png)
+
+*Figure 7-2: An attacker’s &lt;script&gt; tag is written out to the victim’s browser and executed.*
+
+<!-- Source: Web.Security.for.Developers-2020-7.pdf, PDF page 4. -->
 
 A rogue `alert()` dialog is more of an annoyance than a genuine threat, but attackers typically start with this approach to check whether cross-site scripting attacks are possible. If an attacker can call the `alert()` function, they can escalate to more dangerous attacks, like stealing other users’ sessions, or redirecting victims to harmful sites. The baking community would never feel safe online again!
 
@@ -178,7 +190,11 @@ Defusing most cross-site scripting attacks means inspecting and securing server-
 
 To understand these attacks, you first need to understand how URI fragments operate. Let’s start with a reminder of how URLs (universal resource locators), the addresses shown in the browser bar, are structured. A typical URL looks like Figure 7-3.
 
-> [Figure 7-3: The sections of a typical URL — image placeholder; source S7, PDF page 8.]
+![Figure 7-3: The sections of a typical URL](/.attachments/7-3-Web.Security.for.Developers-2020-7.png)
+
+*Figure 7-3: The sections of a typical URL*
+
+<!-- Source: Web.Security.for.Developers-2020-7.pdf, PDF page 8. -->
 
 <!-- Source S7, PDF page 9 -->
 

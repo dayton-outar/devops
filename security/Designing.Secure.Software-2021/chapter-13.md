@@ -14,7 +14,11 @@ They say that nobody is perfect. Then they tell you practice makes perfect. I wi
 
 —Winston Churchill
 
-> [Decorative chapter-opening artwork placeholder — source S13, PDF page 1.]
+![Figure 13-1: Chapter-opening artwork](/.attachments/13-1-Designing.Secure.Software-2021-13.png)
+
+*Figure 13-1: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-13.pdf, PDF page 1. -->
 
 So far in Part III, we have surveyed a collection of security vulnerabilities that arise in the development phase. In this chapter, we’ll focus on how aspects of the development process itself relate to security and can go wrong. We’ll begin by discussing code quality: the value of good code hygiene, thorough error and exception handling, documenting security properties, and the role of code reviews in promoting security. Second, we’ll look at dealing with dependencies: specifically, how they introduce vulnerabilities into systems. The third area we’ll cover is bug triage—a critical skill for balancing security against other exigencies. Finally, secure development depends on maintaining a secure working environment, so I provide some basic tips on what you need to do to avoid being compromised.
 

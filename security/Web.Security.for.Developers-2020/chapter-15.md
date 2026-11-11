@@ -8,7 +8,11 @@ Source: [Web.Security.for.Developers-2020-15.pdf](Web.Security.for.Developers-20
 
 ### XML Attacks
 
-> [Decorative chapter-opening artwork placeholder — source S15, PDF page 1; 9 image tiles.]
+![Figure 15-1: Chapter-opening artwork](/.attachments/15-1-Web.Security.for.Developers-2020-15.png)
+
+*Figure 15-1: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-15.pdf, PDF page 1. -->
 
 With the explosive growth of the internet in the ’90s, organizations began sharing data with each other over the web. Sharing data between computers meant agreeing on a shared data format. Human-readable documents on the web were being marked up with HyperText Markup Language (HTML). Machine-readable files were often stored in an analogous data format called Extensible Markup Language (XML).
 

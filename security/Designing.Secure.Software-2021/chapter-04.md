@@ -1,5 +1,11 @@
 # Chapter 4 - Patterns
 
+![Figure 4-4: Chapter-opening artwork](/.attachments/4-4-Designing.Secure.Software-2021-4.png)
+
+*Figure 4-4: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-4.pdf, PDF page 1. -->
+
 > _Art is pattern informed by sensibility._
 
 —Herbert Read
@@ -8,9 +14,11 @@ Architects have long used design patterns to envision new buildings, an approach
 
 These patterns either mitigate or avoid various security vulnerabilities, forming an important toolbox to address potential threats. Many are simple, but others are harder to understand and best explained by example. Don’t underestimate the simpler ones, as they can be widely applicable and are among the most effective. Still, other concepts may be easier to grasp as anti-patterns describing what not to do. I present these patterns in groups based on shared characteristics that you can think of as sections of the toolbox.
 
-![Groupings of secure software patterns this chapter covers](/.attachments/4-1-groupings.secure.software.patterns.png)
+![Figure 4-1: Groupings of secure software patterns this chapter covers](/.attachments/4-1-Designing.Secure.Software-2021-4.png)
 
-_Figure 4-1: Groupings of secure software patterns_
+*Figure 4-1: Groupings of secure software patterns this chapter covers*
+
+<!-- Source: Designing.Secure.Software-2021-4.pdf, PDF page 2. -->
 
 When and where to apply these patterns requires judgment. Let necessity and simplicity guide your design decisions. As powerful as these patterns are, don’t overdo it; just as you don’t need seven deadbolts and chains on your doors, you don’t need to apply every possible design pattern to fix a problem. Where several patterns are applicable, choose the best one or two, or maybe more for critical security demands. Overuse can be counterproductive because the diminishing returns of increased complexity and overhead quickly outweigh additional security gains.
 
@@ -75,8 +83,6 @@ For example, imagine a large customer relationship management (CRM) system used 
 At the implementation level, Least Information design includes wiping locally cached information when no longer needed, or perhaps displaying a subset of available data on the screen until the user explicitly requests to see certain details. The common practice of displaying passwords as `********` uses this pattern to mitigate the risk of shoulder surfing. It’s particularly important to apply this pattern at design time, as it can be extremely difficult to implement later on because both sides of the interface need to change together. If you design independent components suited to specific tasks that require different sets of data, you’re more likely to get this right. APIs handling sensitive data should provide flexibility to allow callers to specify subsets of data they need in order to minimize information exposure (Table 4-1).
 
 **Table 4-1: How Least Information Changes API Design**
-
-Source S4, PDF page 6.
 
 | Least Information non-compliant API | Least Information compliant API |
 | --- | --- |
@@ -205,9 +211,11 @@ In the realm of software design, deploy _Defense in Depth_ by layering two or mo
 
 A great example of this technique that balances the effort and overhead against the benefit is the implementation of a _sandbox_, a container in which untrusted arbitrary code can run safely. (Modern web browsers run WebAssembly in a secure sandbox.) Running untrusted code in your system could have disastrous consequences if anything goes wrong, justifying the overhead of multiple layers of protection.
 
-![An example of a sandbox as the Defense in Depth pattern](/.attachments/4-2-example.of.sandbox-defense.in.depth.png)
+![Figure 4-2: An example of a sandbox as the Defense in Depth pattern](/.attachments/4-2-Designing.Secure.Software-2021-4.png)
 
-_Figure 4-2: An example of a sandbox as the Defense in Depth pattern_
+*Figure 4-2: An example of a sandbox as the Defense in Depth pattern*
+
+<!-- Source: Designing.Secure.Software-2021-4.pdf, PDF page 14. -->
 
 Code for sandbox execution first gets scanned by an analyzer (defense layer one), which examines it against a set of rules. If any violation occurs, the system rejects the code completely. For example, one rule might forbid the use of calls into the kernel; another rule might forbid the use of specific privileged machine instructions. If and only if the code passes the scanner, it then gets loaded into an interpreter that runs the code while also enforcing a number of restrictions intended to prevent the same kinds of overprivileged operations. For an attacker to break this system, they must first get past the scanner’s rule checking and also trick the interpreter into executing the forbidden operation. This example is especially effective because code scanning and interpretation are fundamentally different, so the chances of the same flaw appearing in both layers is low, especially if they’re developed independently. Even if there is a one-in-a-million chance that the scanner misses a particular attack technique, and the same goes for the interpreter, once they’re combined, the total system has about a one-ina-trillion chance of actually failing. That’s the power of this pattern.
 
@@ -283,9 +291,11 @@ To recap, for software to be trustworthy, there are two requirements: it must be
 
 Often, Confused Deputy vulnerabilities arise when the context of the original request gets lost earlier in the code—for example, if the requester’s identity is no longer available. This sort of confusion is especially likely in common code shared by both high- and low-privilege invocations. Figure 4-3 shows what such an invocation looks like.
 
-![An example of the Confused Deputy anti-pattern](/.attachments/4-3-example.of.confused.deputy.png)
+![Figure 4-3: An example of the Confused Deputy anti-pattern](/.attachments/4-3-Designing.Secure.Software-2021-4.png)
 
-_Figure 4-3: An example of the Confused Deputy anti-pattern_
+*Figure 4-3: An example of the Confused Deputy anti-pattern*
+
+<!-- Source: Designing.Secure.Software-2021-4.pdf, PDF page 20. -->
 
 The `Deputy` code in the center performs work for both low- and high-privilege code. When invoked from High on the right, it may do potentially dangerous operations in service of its trusted caller. Invocation from Low represents a trust boundary crossing, so `Deputy` should only do safe operations appropriate for low-privilege callers. Within the implementation, `Deputy` uses a subcomponent, `Utility`, to do its work. Code within `Utility` has no notion of high- and low-privilege callers, and hence is liable to mistakenly do potentially dangerous operations on behalf of `Deputy` that low-privilege callers should not be able to do.
 

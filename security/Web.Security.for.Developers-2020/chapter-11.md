@@ -8,7 +8,11 @@ Source: [Web.Security.for.Developers-2020-11.pdf](Web.Security.for.Developers-20
 
 ### Permissions
 
-> [Decorative chapter-opening artwork placeholder — source S11, PDF page 1; 9 image tiles.]
+![Figure 11-3: Chapter-opening artwork](/.attachments/11-3-Web.Security.for.Developers-2020-11.png)
+
+*Figure 11-3: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-11.pdf, PDF page 1. -->
 
 Users on your website will usually have different levels of permissions. In a content management system, for instance, some users are administrators who have the ability to edit the site’s content, while most users can only view and interact with the content. Social media sites
 
@@ -176,13 +180,21 @@ If your server-side code allows an attacker to pass and evaluate relative filepa
 
 Imagine you have a website that hosts restaurant menus stored as PDFs on your server’s filesystem. Your site invites users to download each PDF by clicking a link that references a filename, as shown in Figure 11-1.
 
-> [Figure 11-1: A website that allows files to be downloaded — image placeholder; source S11, PDF page 7.]
+![Figure 11-1: A website that allows files to be downloaded](/.attachments/11-1-Web.Security.for.Developers-2020-11.png)
+
+*Figure 11-1: A website that allows files to be downloaded*
+
+<!-- Source: Web.Security.for.Developers-2020-11.pdf, PDF page 7. -->
 
 <!-- Source S11, PDF page 8 -->
 
 If the filename parameter isn’t securely interpreted, an attacker can swap in a relative path in place of the menu filename in the URL, and get access to user account information on your server, as shown in Figure 11-2.
 
-> [Figure 11-2: Using a directory traversal attack to access a Unix file holding account information — image placeholder; source S11, PDF page 8.]
+![Figure 11-2: Using a directory traversal attack to access a Unix file holding account information](/.attachments/11-2-Web.Security.for.Developers-2020-11.png)
+
+*Figure 11-2: Using a directory traversal attack to access a Unix file holding account information*
+
+<!-- Source: Web.Security.for.Developers-2020-11.pdf, PDF page 8. -->
 
 In this instance, the hacker has replaced the name of the menu in the `menu` parameter with a relative path (../../../../etc/passwd) in order to download a sensitive file. Reading the passwd file tells the attacker which user accounts exist on the underlying Linux operating system, revealing sensitive system information that will help the attacker hack the server. You certainly don’t want an attacker to be able to read this kind of information! Let’s look at ways to defuse directory traversal.
 

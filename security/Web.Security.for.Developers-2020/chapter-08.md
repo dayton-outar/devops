@@ -10,7 +10,11 @@ Source: [Web.Security.for.Developers-2020-8.pdf](Web.Security.for.Developers-202
 
 ### Cross-Site Request Forgery Attacks
 
-> [Decorative chapter-opening artwork placeholder — source S8, PDF page 1; 9 image tiles.]
+![Figure 8-1: Chapter-opening artwork](/.attachments/8-1-Web.Security.for.Developers-2020-8.png)
+
+*Figure 8-1: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-8.pdf, PDF page 1. -->
 
 In the previous chapter, you saw how attackers use cross-site scripting attacks to inject JavaScript into a user’s web browser through page elements like comment sections, search results, and URLs. Now you’ll look at how attackers use malicious links to hack your users.
 

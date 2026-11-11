@@ -8,7 +8,11 @@ Source: [Web.Security.for.Developers-2020-12.pdf](Web.Security.for.Developers-20
 
 ### Information Leaks
 
-> [Decorative chapter-opening artwork placeholder — source S12, PDF page 1; 9 image tiles.]
+![Figure 12-1: Chapter-opening artwork](/.attachments/12-1-Web.Security.for.Developers-2020-12.png)
+
+*Figure 12-1: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-12.pdf, PDF page 1. -->
 
 Hackers frequently use publicized security vulnerabilities, especially zero-day vulnerabilities—security flaws that have been made public in the last 24 hours. When someone publishes a zero-day vulnerability for a software component, hackers will immediately scan for web
 

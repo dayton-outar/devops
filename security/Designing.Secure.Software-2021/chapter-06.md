@@ -14,7 +14,11 @@ information, they are failures of design.
 
 —Edward Tufte
 
-> [Decorative chapter-opening artwork placeholder — source S6, PDF page 1.]
+![Figure 6-1: Chapter-opening artwork](/.attachments/6-1-Designing.Secure.Software-2021-6.png)
+
+*Figure 6-1: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-6.pdf, PDF page 1. -->
 
 Once you have a solid understanding of security principles, patterns, and mitigations, the practice of integrating security into your software designs becomes relatively straightforward. As you discern threats to your design, you can apply these tools as needed and explore better design alternatives that reduce risk organically.
 

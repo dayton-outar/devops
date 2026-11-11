@@ -8,7 +8,11 @@ Source: [Web.Security.for.Developers-2020-9.pdf](Web.Security.for.Developers-202
 
 ### Compromising Authentication
 
-> [Decorative chapter-opening artwork placeholder — source S9, PDF page 1; 9 image tiles.]
+![Figure 9-5: Chapter-opening artwork](/.attachments/9-5-Web.Security.for.Developers-2020-9.png)
+
+*Figure 9-5: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-9.pdf, PDF page 1. -->
 
 Most websites provide some sort of login functionality. This is a form of authentication, the process of identifying users when they return to your website. Authenticating your users allows them to have an identity in an online community where they can contribute content, send messages to others, make purchases, and so on.
 
@@ -36,7 +40,11 @@ Because browsers implement the authentication prompt outside HTML, we can’t st
 
 <!-- Source S9, PDF page 3 -->
 
-> [Figure 9-1: The native Google Chrome login prompt rudely interrupts your browsing session. — image placeholder; source S9, PDF page 3.]
+![Figure 9-1: The native Google Chrome login prompt rudely interrupts your browsing session.](/.attachments/9-1-Web.Security.for.Developers-2020-9.png)
+
+*Figure 9-1: The native Google Chrome login prompt rudely interrupts your browsing session.*
+
+<!-- Source: Web.Security.for.Developers-2020-9.pdf, PDF page 3. -->
 
 ### Non-Native Authentication
 
@@ -136,7 +144,11 @@ You may need to ban users from signing up with disposable email addresses if, fo
 
 <!-- Source S9, PDF page 7 -->
 
-> [Figure 9-2: Want a temporary email address? Come get it at https://www.sharklasers.com/. (Yes, this is a real website. Pew pew pew.) — image placeholder; source S9, PDF page 7.]
+![Figure 9-2: Want a temporary email address? Come get it at https://www.sharklasers.com/ . (Yes, this is a real website. Pew pew pew.)](/.attachments/9-2-Web.Security.for.Developers-2020-9.png)
+
+*Figure 9-2: Want a temporary email address? Come get it at https://www.sharklasers.com/ . (Yes, this is a real website. Pew pew pew.)*
+
+<!-- Source: Web.Security.for.Developers-2020-9.pdf, PDF page 7. -->
 
 ### Securing Password Resets
 
@@ -202,7 +214,11 @@ card (the thing they have). Another example would be devices that use biometrics
 
 For websites, multifactor authentication generally boils down to requiring a username and password (the thing the user knows), and confirming that the user has an authenticator installed on their smartphone (the thing they have). Each user will need to sync the authenticator app with the website during sign up (usually by taking a photograph of a QR code onscreen.) Thereafter, the app generates a six-digit random number that they need to supply at login time for the user to log in successfully, like the one shown in Figure 9-3.
 
-> [Figure 9-3: Your users will come to love typing in six-digit numbers. — image placeholder; source S9, PDF page 10.]
+![Figure 9-3: Your users will come to love typing in six-digit numbers.](/.attachments/9-3-Web.Security.for.Developers-2020-9.png)
+
+*Figure 9-3: Your users will come to love typing in six-digit numbers.*
+
+<!-- Source: Web.Security.for.Developers-2020-9.pdf, PDF page 10. -->
 
 This forces an attacker to have knowledge of a victim’s credentials and access to the victim’s smartphone in order to compromise their account, which is a highly unlikely combination. Support for multifactor authentication is increasingly becoming the norm, given the ubiquity of smartphones. If your website does any type of financial processing, you should definitely implement multifactor authentication. Thankfully, many code libraries make integrating it relatively easy.
 
@@ -238,7 +254,11 @@ CAPTCHAs aren’t perfect. Attackers can defeat them by using sophisticated mach
 
 deter most hacking attempts, and you can easily add them to a website. For example, Google implements a CAPTCHA widget called reCAPTCHA that you can install on your site with a few lines of code.
 
-> [Figure 9-4: Some tasks are simply too hard for a computer to complete successfully. — image placeholder; source S9, PDF page 12.]
+![Figure 9-4: Some tasks are simply too hard for a computer to complete successfully.](/.attachments/9-4-Web.Security.for.Developers-2020-9.png)
+
+*Figure 9-4: Some tasks are simply too hard for a computer to complete successfully.*
+
+<!-- Source: Web.Security.for.Developers-2020-9.pdf, PDF page 12. -->
 
 ### Summary
 

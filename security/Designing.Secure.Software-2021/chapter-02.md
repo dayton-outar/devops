@@ -12,7 +12,11 @@ The threat is usually more terrifying than the thing itself.
 
 —Saul Alinsky
 
-> [Decorative chapter-opening artwork placeholder — source S2, PDF page 1.]
+![Figure 2-2: Chapter-opening artwork](/.attachments/2-2-Designing.Secure.Software-2021-2.png)
+
+*Figure 2-2: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-2.pdf, PDF page 1. -->
 
 Threats are omnipresent, but you can live with them if you manage them. Software is no different, except that you don’t have the benefit of millions of years of evolution to prepare yourself. That is why you need to adopt a software security mindset, which requires you to flip from the builder’s perspective to that of the attackers. Understanding the potential threats to a system is the essential starting point in order to bake solid defenses and mitigations into your software designs. But to perceive these threats in the first place, you’ll have to stop thinking about typical use cases and using the software as intended. Instead, you must simply see it for what it is: a bunch of code and components, with data flowing around and getting stored here and there.
 
@@ -150,7 +154,11 @@ Given the large attack surface and the severity of any vulnerability, extensive 
 
 <!-- Source S2, PDF page 10 -->
 
-> [Figure 2-1: How the design of the SSH daemon protects critical trust boundaries — image placeholder; source S2, PDF page 10.]
+![Figure 2-1: How the design of the SSH daemon protects critical trust boundaries](/.attachments/2-1-Designing.Secure.Software-2021-2.png)
+
+*Figure 2-1: How the design of the SSH daemon protects critical trust boundaries*
+
+<!-- Source: Designing.Secure.Software-2021-2.pdf, PDF page 10. -->
 
 Working from the top, each incoming connection forks a low-privilege child process, which listens on the socket and communicates with the parent (superuser) process. This child process also sets up the protocol’s complex secure-channel encryption and accepts login credentials that it passes to the privileged parent, which decides whether or not to trust the incoming request and grant it a shell. Forking a new child process for each request provides a strategic protection on the trust boundary; it isolates as much of the work as possible, and also minimizes the risk of unintentional side effects building up within the main daemon process. When a user successfully logs in, the daemon creates a new shell process with the privileges of the authenticated user account. When a login attempt fails to authenticate, the child process that handled the request terminates, so it can’t adversely affect the system in the future.
 

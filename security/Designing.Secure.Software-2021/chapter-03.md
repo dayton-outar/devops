@@ -1,5 +1,11 @@
 # Chapter 3
 
+![Figure 3-1: Chapter-opening artwork](/.attachments/3-1-Designing.Secure.Software-2021-3.png)
+
+*Figure 3-1: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-3.pdf, PDF page 1. -->
+
 ### Mitigation
 
 >_Everything is possible to mitigate through art and diligence._

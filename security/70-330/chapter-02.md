@@ -20,7 +20,11 @@ Treat all input as hostile. All input, whether received directly from a user or 
 
 Figure 2-1 shows the input validation process.
 
-> [Figure 2-1 placeholder — Use a three-step process to validate input. Source: section 1 source PDF above, PDF page 1.]
+![Figure 2-1: Use a three-step process to validate input.](/.attachments/2-1-Implementing.Security.for.Applications-2005-2-1.png)
+
+*Figure 2-1: Use a three-step process to validate input.*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-1.pdf, PDF page 1. -->
 
 <!-- Section 1, PDF page 2 -->
 
@@ -194,7 +198,11 @@ The fourth, fifth, and sixth characters in the regular expression “{5}” mean
 
 The last character in the regular expression, “$”, matches the end of the input string. If this character is omitted, any characters can follow the matched input. If you remove this character, the regular expression “^\d{5}” will still match valid five-digit numbers, such as “12345”. However, it will also match the input string “12345abcd” or “12345’ drop table customers --”. In fact, the modified regular expression will match any input string that begins in a five-digit number. Figure 2-2 summarizes the analysis of this simple regular expression.
 
-> [Figure 2-2 placeholder — Analysis of a regular expression. Source: section 1 source PDF above, PDF page 8.]
+![Figure 2-2: Analysis of a regular expression](/.attachments/2-2-Implementing.Security.for.Applications-2005-2-1.png)
+
+*Figure 2-2: Analysis of a regular expression*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-1.pdf, PDF page 8. -->
 
 <!-- Section 1, PDF page 9 -->
 
@@ -317,7 +325,11 @@ Of these five controls, RangeValidator, RegularExpressionValidator, and CustomVa
 
 4. Define the ControlToValidate property of the validator Web control as the name of the input Web control created in step 1 (Figure 2-3).
 
-> [Figure 2-3 placeholder — Defining a property of a validator control to reduce the risk of accepting malicious input. Source: section 1 source PDF above, PDF page 12.]
+![Figure 2-3: Defining a property of a validator control to reduce the risk of accepting malicious input](/.attachments/2-3-Implementing.Security.for.Applications-2005-2-1.png)
+
+*Figure 2-3: Defining a property of a validator control to reduce the risk of accepting malicious input*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-1.pdf, PDF page 12. -->
 
 <!-- Section 1, PDF page 13 -->
 
@@ -329,7 +341,11 @@ Of these five controls, RangeValidator, RegularExpressionValidator, and CustomVa
 
 ❑ CustomValidator Create a custom method to validate the input, and then set the ServerValidate property to the name of the server-side method that will validate the input. Optionally, you can set the ClientValidationFunction property to the name of a client script that the browser will run.
 
-> [Figure 2-4 placeholder — Regular Expression Editor simplifying validation of complex input in ASP.NET forms. Source: section 1 source PDF above, PDF page 13.]
+![Figure 2-4: Regular Expression Editor simplifying validation of complex input in ASP . NET forms](/.attachments/2-4-Implementing.Security.for.Applications-2005-2-1.png)
+
+*Figure 2-4: Regular Expression Editor simplifying validation of complex input in ASP . NET forms*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-1.pdf, PDF page 13. -->
 
 6. Add code to check the status of the validator controls. For example, the following code checks the status of a validator Web control, and throws an exception if the input is invalid:
 
@@ -766,13 +782,21 @@ Design Invite the database administrators to examine the structure of your appli
 
 As shown in Figure 2-5, you can restrict what types of queries each user and role can run against each object in the database. Allowing SELECT queries enables the user to retrieve any information from the table. UPDATE enables making changes to existing rows, whereas INSERT allows the user to add new rows. Roles with DELETE permissions can remove rows from the database—a very dangerous permission to grant.
 
-> [Figure 2-5 placeholder — Restricting query types for users and roles. Source: section 3 source PDF above, PDF page 4.]
+![Figure 2-5: Restricting query types for users and roles](/.attachments/2-5-Implementing.Security.for.Applications-2005-2-3.png)
+
+*Figure 2-5: Restricting query types for users and roles*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-3.pdf, PDF page 4. -->
 
 <!-- Section 3, PDF page 5 -->
 
 The more granular you assign permissions, the better. If tables contain a combination of information that should be available to a given role and information that should be kept private, you should assign permissions to individual columns. For example, if you are creating an employee directory application that pulls data from a human resources database containing personal information about employees, grant users access to only the rows your application will display, as shown in Figure 2-6. Restricting access to individual columns isn’t sufficiently secure, because you are trusting that an attacker will not modify your SQL queries and will not bypass your application by connecting directly to the database.
 
-> [Figure 2-6 placeholder — Assigning permissions to individual columns in a table containing confidential information. Source: section 3 source PDF above, PDF page 5.]
+![Figure 2-6: Assigning permissions to individual columns in a table containing confidential information](/.attachments/2-6-Implementing.Security.for.Applications-2005-2-3.png)
+
+*Figure 2-6: Assigning permissions to individual columns in a table containing confidential information*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-3.pdf, PDF page 5. -->
 
 See Also Databases are an important part of most business applications, and you must be familiar with database security concepts. However, detailed coverage of SQL Server security configuration is outside the scope of this book. For more information, see “Security Resources” on the Windows Server System page of the Microsoft Web site at http://www.microsoft.com/sql/techinfo/administration/2000/security/ .
 
@@ -1016,7 +1040,11 @@ In this exercise, you compile and run an ASP.NET application that is vulnerable 
 
 8. In the Permit In Database Role list, select the public and db_owner check boxes, as shown in Figure 2-7.
 
-> [Figure 2-7 placeholder — Granting users the db_owner Database role to give almost unrestricted access to the database. Source: section 3 source PDF above, PDF page 11.]
+![Figure 2-7: Granting users the db&#95;owner Database role to give almost unrestricted access to the database](/.attachments/2-7-Implementing.Security.for.Applications-2005-2-3.png)
+
+*Figure 2-7: Granting users the db&#95;owner Database role to give almost unrestricted access to the database*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-3.pdf, PDF page 11. -->
 
 Security Alert Assigning a user the db_owner role is a very bad thing to do because it gives that user a great many rights to your database. However, it is a very common mistake for developers to make, because selecting the db_owner check box immediately resolves all database authorization-related problems.
 
@@ -1048,7 +1076,11 @@ Visual Studio compiles and launches the application from within Internet Explore
 
 The Northwind application shows the ID and name of the product, as shown in Figure 2-8. This verifies that the sample application is configured correctly. Leave SQL Enterprise Manager and Internet Explorer open for the next exercise.
 
-> [Figure 2-8 placeholder — Querying for a product to verify that the sample application is correctly configured. Source: section 3 source PDF above, PDF page 12.]
+![Figure 2-8: Querying for a product to verify that the sample application is correctly configured](/.attachments/2-8-Implementing.Security.for.Applications-2005-2-3.png)
+
+*Figure 2-8: Querying for a product to verify that the sample application is correctly configured*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-3.pdf, PDF page 12. -->
 
 <!-- Section 3, PDF page 13 -->
 
@@ -1066,7 +1098,11 @@ The Northwind application displays the message Table Created. Later, you will dr
 
 The Northwind application shows an exception error message, as shown in Figure 2-9. The error message indicates that it couldn’t find any rows matching your input. However, it did submit the query to the database.
 
-> [Figure 2-9 placeholder — Error message indicating that no matching rows were found. Source: section 3 source PDF above, PDF page 13.]
+![Figure 2-9: Error message indicating that no matching rows were found](/.attachments/2-9-Implementing.Security.for.Applications-2005-2-3.png)
+
+*Figure 2-9: Error message indicating that no matching rows were found*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-3.pdf, PDF page 13. -->
 
 4. In Enterprise Manager, select the Tables node in the left pane, and then press F5 to refresh the display. The DeleteMe table disappears, indicating that the table was successfully deleted.
 
@@ -1171,7 +1207,11 @@ All modern browsers should ignore these attempted CSS exploits. However, not eve
 
 The second form of a CSS attack involves an attacker enticing a victim to click a hyperlink to a vulnerable application. The hyperlink is specially formed to contain codes that will cause the application to generate a Web page that launches a client-side script on the user’s browser or causes the browser to send a request to a malicious server. Consider the Web page shown in Figure 2-10, which displays the contents of the name request parameter.
 
-> [Figure 2-10 placeholder — Web page that could be used to trick a user. Source: section 4 source PDF above, PDF page 3.]
+![Figure 2-10: Web page that could be used to trick a user](/.attachments/2-10-Implementing.Security.for.Applications-2005-2-4.png)
+
+*Figure 2-10: Web page that could be used to trick a user*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-4.pdf, PDF page 3. -->
 
 An attacker could abuse the Web page shown in Figure 2-10 by tricking an unsuspecting user into clicking a hyperlink that passed HTML code to the page, such as http: //localhost/xss/WebForm1.aspx?name=<a%20href="javascript:alert(1);">Click%20here </a>.
 
@@ -1179,7 +1219,11 @@ Many Web platforms would then pass the HTML unfiltered to the user. Fortunately,
 
 <!-- Section 4, PDF page 4 -->
 
-> [Figure 2-11 placeholder — Error resulting from malicious HTML code being passed to an ASP.NET page. Source: section 4 source PDF above, PDF page 4.]
+![Figure 2-11: Error resulting from malicious HTML code being passed to an ASP . NET page](/.attachments/2-11-Implementing.Security.for.Applications-2005-2-4.png)
+
+*Figure 2-11: Error resulting from malicious HTML code being passed to an ASP . NET page*
+
+<!-- Source: Implementing.Security.for.Applications-2005-2-4.pdf, PDF page 4. -->
 
 ```text
 You cannot rely on ASP.NET to prevent CSS attacks, however. You must constrain,

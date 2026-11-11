@@ -8,7 +8,11 @@ Source: [Web.Security.for.Developers-2020-14.pdf](Web.Security.for.Developers-20
 
 ### Third-Party Code
 
-> [Decorative chapter-opening artwork placeholder — source S14, PDF page 1; 9 image tiles.]
+![Figure 14-1: Chapter-opening artwork](/.attachments/14-1-Web.Security.for.Developers-2020-14.png)
+
+*Figure 14-1: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-14.pdf, PDF page 1. -->
 
 Nobody builds software from scratch nowadays, least of all web developers. Most of the code powering your website—from the operating system, to the web server, to the programming language libraries you use—will be written by others. So how do you manage vulnerabilities in other people’s code?
 

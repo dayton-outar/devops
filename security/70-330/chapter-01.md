@@ -52,7 +52,11 @@ One of the most common types of buffer overflows is the stack overflow. To under
 
 <!-- Section 1, PDF page 3 -->
 
-> [Figure 1-1 placeholder — A simple illustration of normal stack operations. Source: section 1 source PDF above, PDF page 3.]
+![Figure 1-1: A simple illustration of normal stack operations](/.attachments/1-1-Implementing.Security.for.Applications-2005-1-1.png)
+
+*Figure 1-1: A simple illustration of normal stack operations*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-1.pdf, PDF page 3. -->
 
 Notice that the first command-line parameter passed to the application is ultimately copied into the buf 10-character array. While the program runs, it stores information temporarily on the stack, including the return address where processing should continue after the subroutine has completed and the variable is passed to the subroutine. The application works fine when fewer than 10 characters are passed to it. However, passing more than 10 characters will result in a buffer overflow.
 
@@ -60,7 +64,11 @@ Figure 1-2 shows that same application being deliberately attacked by providing 
 
 <!-- Section 1, PDF page 4 -->
 
-> [Figure 1-2 placeholder — A buffer overflow attack that redirects execution. Source: section 1 source PDF above, PDF page 4.]
+![Figure 1-2: A buffer overflow attack that redirects execution](/.attachments/1-2-Implementing.Security.for.Applications-2005-1-1.png)
+
+*Figure 1-2: A buffer overflow attack that redirects execution*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-1.pdf, PDF page 4. -->
 
 This simplified example passes the destination memory address in ASCII characters just to make it clear how the memory is overwritten. In reality, the attacker would need to pass the 4 bytes that describe the actual memory address where processing should continue to interrupt normal processing. Although you can’t type these characters with a keyboard, you can use tools that pass memory addresses to command-line applications. Additionally, the simplified example assumes the attacker has already stored malicious code in memory and just needs to run the code. Storing the code in memory would be very difficult. Usually, the malicious instructions would be passed as input to the application, where it would be stored on the stack.
 
@@ -233,7 +241,11 @@ See Also For more information about cryptography, see Chapter 8, “Protecting D
 
 A man-in-the-middle (MITM) attack is a sophisticated attack in which an attacker impersonates a server to intercept requests from a legitimate client. Then, the attacker impersonates the user to the destination server, as shown in Figure 1-3. At that point the attacker can examine and potentially modify the communications between the client and server.
 
-> [Figure 1-3 placeholder — Man-in-the-middle attack. Source: section 1 source PDF above, PDF page 11.]
+![Figure 1-3: Man-in-the-middle attack](/.attachments/1-3-Implementing.Security.for.Applications-2005-1-1.png)
+
+*Figure 1-3: Man-in-the-middle attack*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-1.pdf, PDF page 11. -->
 
 Any application that does not require both encryption and authentication is susceptible to man-in-the-middle attacks. Man-in-the-middle attacks are usually prevented by implementing authentication and encryption at the level of the operating system, rather
 
@@ -376,7 +388,11 @@ Defense-in-depth is a proven technique for reducing the exposure of vulnerabilit
 
 <!-- Section 2, PDF page 2 -->
 
-> [Figure 1-4 placeholder — Defense-in-depth used to protect a network. Source: section 2 source PDF above, PDF page 2.]
+![Figure 1-4: Defense-in-depth used to protect a network](/.attachments/1-4-Implementing.Security.for.Applications-2005-1-2.png)
+
+*Figure 1-4: Defense-in-depth used to protect a network*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-2.pdf, PDF page 2. -->
 
 Networks should be designed with defense-in-depth in mind, but the concept must be extended deep into the code that makes up the applications themselves. As a developer, you cannot rely on customers providing network-level protection. First, many customers will be unable or unwilling to properly secure their networks. Second, configuring your application to work in different environments might require your customers to allow specific requests through their firewalls. If nothing else, the network must be configured to allow communications between the client and server components of a network application. What Is the SD3 Strategy?
 
@@ -472,13 +488,21 @@ Even the process that you use to design your application should consider securit
 
 Design your application so that day-to-day functions run in a separate process and separate security context from management functions. Figure 1-5 shows a simplified design of an e-commerce application without separation of privilege. In this example, the entire application is run in the context of the ASP.NET user account. This requires that the ASP.NET user account have privileges to perform management tasks, such as deleting rows from the Orders table. Additionally, application management functionality such as the Management.ShipOrder() and Management.AddInventory() functions could be called by an attacker who would be able to compromise the application.
 
-> [Figure 1-5 placeholder — An e-commerce application designed without separation of privilege. Source: section 2 source PDF above, PDF page 7.]
+![Figure 1-5: An e-commerce application designed without separation of privilege](/.attachments/1-5-Implementing.Security.for.Applications-2005-1-2.png)
+
+*Figure 1-5: An e-commerce application designed without separation of privilege*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-2.pdf, PDF page 7. -->
 
 Figure 1-6 shows the same simplified e-commerce application designed using separation of privilege. This example implements separate applications for use by customers and internal management. The Customer application uses the ASP.NET account to access resources, whereas the Management application uses impersonation so that it runs in the context of an authenticated user. In the event an attacker successfully exploits the Customer application, this design will limit the damage the attacker can do because the ASP.NET user account’s permissions are restricted to only those permissions required for end users. Specifically, in this design, the ASP.NET user account does not need permission to update, add, or delete rows of the Inventory table. Therefore, an attacker would not be able to insert or change records of inventory. However, since internal users will have these permissions, the Management application will be able to update the inventory when required.
 
 <!-- Section 2, PDF page 8 -->
 
-> [Figure 1-6 placeholder — An e-commerce application designed with separation of privilege. Source: section 2 source PDF above, PDF page 8.]
+![Figure 1-6: An e-commerce application designed with separation of privilege](/.attachments/1-6-Implementing.Security.for.Applications-2005-1-2.png)
+
+*Figure 1-6: An e-commerce application designed with separation of privilege*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-2.pdf, PDF page 8. -->
 
 See Also For more information about impersonation, see Chapter 5.
 
@@ -522,7 +546,11 @@ Server ISAPI extension, however. If IIS 4.0 had followed the secure by default p
 
 You can learn from the mistakes made with IIS 4.0, or you can follow the example set by IIS 6.0 (included with Windows Server 2003). First, Windows Server 2003 does not install IIS 6.0 by default. If an administrator does choose to install IIS, she is prompted to enable optional functionality such as the FrontPage Server Extensions and ASP.NET, as shown in Figure 1-7. Both of these features are commonly used, but neither is selected by default. Administrators must explicitly choose to enable these features. That requirement alone will not prevent vulnerabilities in IIS from being exploited, but it will reduce the number of compromised computers.
 
-> [Figure 1-7 placeholder — Optional IIS 6.0 components not installed by default. Source: section 2 source PDF above, PDF page 10.]
+![Figure 1-7: Optional IIS 6.0 components not installed by default](/.attachments/1-7-Implementing.Security.for.Applications-2005-1-2.png)
+
+*Figure 1-7: Optional IIS 6.0 components not installed by default*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-2.pdf, PDF page 10. -->
 
 ### Configure the Most Restrictive Permissions Possible During Configuration
 
@@ -592,7 +620,11 @@ Yes
 
 Release update and notify customers
 
-> [Figure 1-8 placeholder — A typical security vulnerability discovery and patch release process. Source: section 2 source PDF above, PDF page 14.]
+![Figure 1-8: A typical security vulnerability discovery and patch release process](/.attachments/1-8-Implementing.Security.for.Applications-2005-1-2.png)
+
+*Figure 1-8: A typical security vulnerability discovery and patch release process*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-2.pdf, PDF page 14. -->
 
 Real World Why People Might Resist Deploying Updates We’ve seen it over and over again: a vulnerability is discovered, and the software developer releases a patch within a few weeks. Then, months later, a worm or virus is released that exploits the vulnerability. The malicious software shouldn’t spread at all, right? After all, the developer released a patch for it.
 
@@ -768,7 +800,11 @@ by using an ACL. The ACL lists users and groups and the permissions each has to 
 
 For example, Figure 1-9 shows that the Power Users group appears in the ACL for the Boot.ini file and has Read and Read & Execute permissions. Because Power Users lack the Modify permission, members of that group cannot edit the Boot.ini file. The Users group does not appear at all, which prevents standard Users from either viewing or editing the file—a good thing, since malicious software could edit the file to take control of the computer the next time it starts. Both Administrators and SYSTEM have Full Control over the file, which enables Administrators to change the computer’s startup configuration.
 
-> [Figure 1-9 placeholder — Using Explorer to view the Boot.ini file’s ACL. Source: section 3 source PDF above, PDF page 4.]
+![Figure 1-9: Using Explorer to view the Boot.ini file’s ACL](/.attachments/1-9-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-9: Using Explorer to view the Boot.ini file’s ACL*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 4. -->
 
 ACLs control a user’s access to system resources, and privileges control a user’s access to important system APIs. For example, only users with the SeShutdownPrivilege are allowed to turn the computer off. If your application turns the computer off, the user running the application must have that privilege or the .NET Framework throws an exception. Members of the Administrators group do have this privilege by default, but Users on computers running Windows Server 2003 lack this privilege. However, this does not mean that users must be members of the Administrators group to run an application that shuts down the computer—it means that users must be granted SeShutdownPrivilege to run the application. Understanding the distinction is important: group memberships can be used to grant privileges, but privileges can also be granted directly to users and groups without changing group memberships.
 
@@ -788,7 +824,11 @@ The Local Security Settings console
 
 displays a list of all user rights assignments in the right pane, as shown in Figure 1-10.
 
-> [Figure 1-10 placeholder — The Local Security Settings console displaying user rights assignments. Source: section 3 source PDF above, PDF page 5.]
+![Figure 1-10: The Local Security Settings console displaying user rights assignments](/.attachments/1-10-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-10: The Local Security Settings console displaying user rights assignments*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 5. -->
 
 4. In the right pane, double-click any policy to examine or edit the memberships.
 
@@ -814,7 +854,11 @@ Most of the troubleshooting process is self-explanatory, but enabling system aud
 
 <!-- Section 3, PDF page 7 -->
 
-> [Figure 1-11 placeholder — Using auditing to identify authorization problems. Source: section 3 source PDF above, PDF page 7.]
+![Figure 1-11: Using auditing to identify authorization problems](/.attachments/1-11-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-11: Using auditing to identify authorization problems*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 7. -->
 
 <!-- Section 3, PDF page 8 -->
 
@@ -834,7 +878,11 @@ The first step in identifying resources with insufficient privileges is to enabl
 
 6. Select Define These Policy Settings, and then select Failure, as shown in Figure 112. Click OK.
 
-> [Figure 1-12 placeholder — Enabling auditing. Source: section 3 source PDF above, PDF page 8.]
+![Figure 1-12: Enabling auditing](/.attachments/1-12-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-12: Enabling auditing*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 8. -->
 
 ### How to Enable Resource Auditing
 
@@ -858,7 +906,11 @@ Tip If you were auditing the registry, you would open the Registry Editor, right
 
 7. Select the Failed check box for the Full Control entry, as shown in Figure 1-13. All Failed check boxes will be automatically selected.
 
-> [Figure 1-13 placeholder — Enabling resource failure auditing. Source: section 3 source PDF above, PDF page 9.]
+![Figure 1-13: Enabling resource failure auditing](/.attachments/1-13-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-13: Enabling resource failure auditing*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 9. -->
 
 8. Click OK twice. Windows will apply the auditing setting to the folder, subfolder, and files automatically. If you are applying access to a large number of files, such as the entire C drive, this can take a moment.
 
@@ -884,7 +936,11 @@ After you enable auditing and re-create the problem condition, Windows adds even
 
 6. Event Viewer will now display only failure audits in the right pane. Double-click the most recent failure audit to examine the contents of the event. The Event Properties dialog box appears, as shown in Figure 1-14.
 
-> [Figure 1-14 placeholder — Analyzing security events with Event Viewer. Source: section 3 source PDF above, PDF page 10.]
+![Figure 1-14: Analyzing security events with Event Viewer](/.attachments/1-14-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-14: Analyzing security events with Event Viewer*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 10. -->
 
 7. Examine the Description box. This box shows the type of object, the object name, the process ID and image filename of the application used to access the object, and the type of operation that was performed on the object. For example, the following are the contents of the Description box for a user, mgibson, who was denied access to the C:\TK70-330 folder when she attempted to access the folder using Windows Explorer.
 
@@ -944,7 +1000,11 @@ Visual Studio .NET 2003 will open the project.
 
 Visual Studio will compile and launch the application, which will display the contents of your Hosts file, as shown in Figure 1-15.
 
-> [Figure 1-15 placeholder — MostPrivileges running successfully. Source: section 3 source PDF above, PDF page 12.]
+![Figure 1-15: MostPrivileges running successfully](/.attachments/1-15-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-15: MostPrivileges running successfully*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 12. -->
 
 5. Close MostPrivileges, and then close Visual Studio. Remain logged on as Administrator.
 
@@ -976,7 +1036,11 @@ In this exercise, you will test a simple application to determine whether it is 
 
 The MostPrivileges application launches and shows an error message, as shown in Figure 1-16.
 
-> [Figure 1-16 placeholder — MostPrivileges without sufficient permissions. Source: section 3 source PDF above, PDF page 13.]
+![Figure 1-16: MostPrivileges without sufficient permissions](/.attachments/1-16-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-16: MostPrivileges without sufficient permissions*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 13. -->
 
 11. Use Windows Explorer to navigate to the folder C:\Windows\System32\Drivers \Etc.
 
@@ -986,7 +1050,11 @@ The MostPrivileges application launches and shows an error message, as shown in 
 
 As shown in Figure 1-17, the Users group has only Read and Read & Execute permissions to the Hosts file. This should be enough for the MostPrivileges application to run correctly, however, because the application displays only the contents of the file.
 
-> [Figure 1-17 placeholder — Default permissions assigned to the Hosts file. Source: section 3 source PDF above, PDF page 13.]
+![Figure 1-17: Default permissions assigned to the Hosts file](/.attachments/1-17-Implementing.Security.for.Applications-2005-1-3.png)
+
+*Figure 1-17: Default permissions assigned to the Hosts file*
+
+<!-- Source: Implementing.Security.for.Applications-2005-1-3.pdf, PDF page 13. -->
 
 14. Click OK, and then log off Windows.
 

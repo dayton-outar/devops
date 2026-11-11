@@ -8,7 +8,11 @@ Source: [Web.Security.for.Developers-2020-6.pdf](Web.Security.for.Developers-202
 
 ### Injection Attacks
 
-> [Decorative chapter-opening artwork placeholder — source S6, PDF page 1; 9 image tiles.]
+![Figure 6-3: Chapter-opening artwork](/.attachments/6-3-Web.Security.for.Developers-2020-6.png)
+
+*Figure 6-3: Chapter-opening artwork*
+
+<!-- Source: Web.Security.for.Developers-2020-6.pdf, PDF page 1. -->
 
 Now that you have a solid grasp of how the internet works, let’s focus on specific vulnerabilities and the methods hackers use to exploit them. This chapter covers injection attacks, which occur when the attacker injects external code into an application in an effort to take control of the application or read sensitive data.
 
@@ -243,7 +247,11 @@ Listing 6-11: PHP code receiving an HTTP request and constructing an operating s
 
 The `domain` parameter is extracted from the HTTP request at [1]. Because the code does not escape the `domain` argument when constructing the command string [2], an attacker can craft a malicious URL and tag an extra command on the end, as shown in Figure 6-1.
 
-> [Figure 6-1: Using the URL to inject a malicious command — image placeholder; source S6, PDF page 9.]
+![Figure 6-1: Using the URL to inject a malicious command](/.attachments/6-1-Web.Security.for.Developers-2020-6.png)
+
+*Figure 6-1: Using the URL to inject a malicious command*
+
+<!-- Source: Web.Security.for.Developers-2020-6.pdf, PDF page 9. -->
 
 Here the attacker sends a domain parameter with the value `google.com` `&& echo "HAXXED"`, and the browser URL-encodes the whitespace and nonalphanumeric characters. The `&&` syntax in Unix concatenates separate commands. Because our PHP code doesn’t strip such control characters, the attacker carefully constructs the HTTP request to append an extra command. Two separate commands will get executed in this scenario: the expected `nslookup` command that looks up google.com, followed by the injected command `echo "HAXXED"`.
 
@@ -351,7 +359,11 @@ Because the web shell is available on a public URL, the attacker has potentially
 
 To perform a command injection attack, the hacker can pass a `cmd` argument to the web shell to execute arbitrary operating system commands on your server, as shown in Figure 6-2.
 
-> [Figure 6-2: If your file upload function is vulnerable, a hacker could use a web shell to access your database credentials. — image placeholder; source S6, PDF page 13.]
+![Figure 6-2: If your file upload function is vulnerable, a hacker could use a web shell to access your database credentials.](/.attachments/6-2-Web.Security.for.Developers-2020-6.png)
+
+*Figure 6-2: If your file upload function is vulnerable, a hacker could use a web shell to access your database credentials.*
+
+<!-- Source: Web.Security.for.Developers-2020-6.pdf, PDF page 13. -->
 
 In this scenario, the attacker can explore your filesystem. The attacker has taken advantage of your file upload function to gain the same access to your operating system as they would with a command injection attack.
 

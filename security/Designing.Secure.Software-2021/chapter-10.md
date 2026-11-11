@@ -12,7 +12,11 @@ I like engineering, but I love the creative input.
 
 —John Dykstra
 
-> [Decorative chapter-opening artwork placeholder — source S10, PDF page 1.]
+![Figure 10-2: Chapter-opening artwork](/.attachments/10-2-Designing.Secure.Software-2021-10.png)
+
+*Figure 10-2: Chapter-opening artwork*
+
+<!-- Source: Designing.Secure.Software-2021-10.pdf, PDF page 1. -->
 
 Untrusted inputs are perhaps the greatest source of concern for developers writing secure code. The term itself can be confusing, and may best be understood as encompassing all inputs to a system that are not trusted inputs, meaning inputs from code that you can trust to provide well-formed data. Untrusted inputs are those that are out of your control and might be manipulated, and include any data entering the system that you do not fully trust. That is, they’re inputs you should not trust, not inputs you mistakenly trust.
 
@@ -181,7 +185,11 @@ The classic xkcd comic #327 (Figure 10-1) portrays an audacious SQL injection at
 
 <!-- Source S10, PDF page 11 -->
 
-> [Figure 10-1: Exploits of a Mom (courtesy of Randall Munroe, xkcd.com/327) — image placeholder; source S10, PDF page 11.]
+![Figure 10-1: Exploits of a Mom (courtesy of Randall Munroe, xkcd.com/327 )](/.attachments/10-1-Designing.Secure.Software-2021-10.png)
+
+*Figure 10-1: Exploits of a Mom (courtesy of Randall Munroe, xkcd.com/327 )*
+
+<!-- Source: Designing.Secure.Software-2021-10.pdf, PDF page 11. -->
 
 To understand how this works, assume that the school registration system uses a SQL database and adds student records with a SQL statement of the form shown here:
 
